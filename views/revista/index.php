@@ -66,8 +66,6 @@
 <?php include("includes/footer.php");?>
 <?php include("includes/scripts.php");?>
 
-
-
 <script src="app-assets/vendors/js/ui/jquery.sticky.js"></script>
 <script src="app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
 <script src="app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
