@@ -6,20 +6,23 @@ $(document).on("ready", function() {
 });
 
 function Actualizar() {
-  $("#tabla").on("click", ".btnEditarRevista", function() {
+  $("#tabla").on("click", ".btnEditarAutor", function() {
       d = $(this).parents("tr").find("td");
-      $("#labelISSN").hide();
-      $("#ISSN").val(d[0].innerText).hide();
-      $("#TITULO_REVISTA").val(d[1].innerText);
-      $("#NUMERO").val(d[2].innerText);
-      $("#FECHA").val(d[3].innerText);
+      $("#labelID_AUTOR").hide();
+      $("#ID_AUTOR").val(d[0].innerText).hide();
+      $("#NOMBRE_AUTOR").val(d[1].innerText);
+      $("#APELLIDO1").val(d[2].innerText);
+      $("#APELLIDO2").val(d[3].innerText);
+      $("#CORREO").val(d[4].innerText);
+      $("#ADSCRIPCION").val(d[5].innerText);
+      $("#POSICION").val(d[6].innerText);
       __('nn').innerHTML = "Editar";
 
   });
 }
 
 function Eliminar() {
-  $("#tabla").on("click", ".btnElinimarRevista", function() {
+  $("#tabla").on("click", ".btnEliminarAutor", function() {
       d = $(this).parents("tr").find("td");
 
 
@@ -39,9 +42,9 @@ function Eliminar() {
 
           $.ajax({
               type: 'POST',
-              url: "?c=Revista&a=Eliminar",
+              url: "?c=Autor&a=Eliminar",
               data: {
-                  'ISSN': d[0].innerText
+                  'ID_AUTOR': d[0].innerText
               },
               success: function(result) {
 
@@ -76,7 +79,7 @@ function Eliminar() {
 }
 
 function Guardar() {
-  $("#frm-revista").on("submit", function(e) {
+  $("#frm-cliente").on("submit", function(e) {
       e.preventDefault();
       //Guardamos la referencia al formulario
       var $f = $(this);
@@ -85,12 +88,15 @@ function Guardar() {
           //No esta bloqueado aun, bloqueamos, preparamos y enviamos la peticion
           $.ajax({
               type: 'POST',
-              url: "?c=Revista&a=Guardar",
+              url: "?c=Autor&a=Guardar",
               data: {
-                  'ISSN': $("#ISSN").val(),
-                  'TITULO_REVISTA': $("#TITULO_REVISTA").val(),
-                  'NUMERO': $("#NUMERO").val(),
-                  'FECHA': $("#FECHA").val(),
+                  'ID_AUTOR': $("#ID_AUTOR").val(),
+                  'NOMBRE_AUTOR': $("#NOMBRE_AUTOR").val(),
+                  'APELLIDO1': $("#APELLIDO1").val(),
+                  'APELLIDO2': $("#APELLIDO2").val(),
+                  'CORREO': $("#CORREO").val(),
+                  'ADSCRIPCION': $("#ADSCRIPCION").val(),
+                  'POSICION': $("#POSICION").val(),
                   'acc': __("nn").innerHTML
               },
               beforeSend: function() {
@@ -137,10 +143,13 @@ function __(id) {
 }
 
 function limpiar() {
-  $("#ISSN").val("");
-  $("#TITULO_REVISTA").val("");
-  $("#NUMERO").val("");
-  $("#FECHA").val("");
+  $("#ID_AUTOR").val("");
+  $("#NOMBRE_AUTOR").val("");
+  $("#APELLIDO1").val("");
+  $("#APELLIDO2").val("");
+  $("#CORREO").val("");
+  $("#ADSCRIPCION").val("");
+  $("#POSICION").val("");
   __('nn').innerHTML = "Nuevo";
 }
 
@@ -151,25 +160,34 @@ function Listar() {
       "bDeferRender": true,
       "sPaginationType": "full_numbers",
       "ajax": {
-          "url": "?c=Revista&a=Listar",
+          "url": "?c=Autor&a=Listar",
           "type": "POST"
       },
       "columns": [{
-              "data": "ISSN"
+              "data": "ID_AUTOR"
           },
           {
-              "data": "TITULO_REVISTA"
+              "data": "NOMBRE_AUTOR"
           },
           {
-              "data": "NUMERO"
+              "data": "APELLIDO1"
           },
           {
-              "data": "FECHA"
+              "data": "APELLIDO2"
+          },
+          {
+            "data": "CORREO"
+          },
+          {
+            "data": "ADSCRIPCION"
+          },
+          {
+            "data": "POSICION"
           },
           {
               "data": null,
-              "defaultContent": "<button class='btn bg-gradient-warning btnEditarRevista ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
-              <button class='btn bg-gradient-danger btnElinimarRevista'><span class='fa fa-trash'></span></button>"
+              "defaultContent": "<button class='btn bg-gradient-warning btnEditarAutor ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
+              <button class='btn bg-gradient-danger btnEliminarAutor'><span class='fa fa-trash'></span></button>"
           }
       ],
 

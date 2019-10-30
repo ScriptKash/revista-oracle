@@ -37,7 +37,7 @@
                                 <div class="form-group">
                                   <label class="col col-md-3">Número</label>
                                   <div class="col col-md-9">
-                                  <input type="text" class="form-control" id="NUMERO" placeholder="Ingrese número"  required>
+                                  <input type="number" class="form-control" id="NUMERO" placeholder="Ingrese número"  required>
                                 </div>
                                 </div>
                               </div>

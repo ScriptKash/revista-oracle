@@ -1,8 +1,8 @@
 <?php
 	switch ($_SERVER["SCRIPT_NAME"]) {
-		case "/views/revista/index.php":
-			$CURRENT_PAGE = "Revistas"; 
-			$PAGE_TITLE = "Revistas";
+		case "?c=revista":
+			$CURRENT_PAGE = "xDD"; 
+			$PAGE_TITLE = "xDDD";
 			break;
 		case "/php-template/contact.php":
 			$CURRENT_PAGE = "Contact"; 

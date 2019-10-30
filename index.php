@@ -1,6 +1,8 @@
 <?php
 require_once "controllers/inicio.controller.php";
 require_once "controllers/revista.controller.php";
+require_once "controllers/cliente.controller.php";
+require_once "controllers/autor.controller.php";
 
 if(isset($_REQUEST['c']))
 {

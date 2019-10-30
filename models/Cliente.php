@@ -1,16 +1,17 @@
 <?php
 
-class Revista
+class Cliente
 {
     // Configuraciones para que funcione la conexión
     private $oracle;
     private $n;
 
     // Atributos de la tabla
-    public $ISSN;
-    public $TITULO_REVISTA;
-    public $NUMERO;
-    public $FECHA;
+    public $ID_CLIENTE;
+    public $NOMBRE_CLIENTE;
+    public $APELLIDO1_CLIENTE;
+    public $APELLIDO2_CLIENTE;
+    public $CORREO;
 
     function __construct() {
         
@@ -34,30 +35,31 @@ class Revista
     // Función para listar todo lo que tenga la tabla
     public function Listar()
     {
-        $sql  = 'SELECT * from REVISTA';
+        $sql  = 'SELECT * from CLIENTE';
         $stmt = $this->oracle->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Función para insertar un registro a la tabla
-    public function Registrar(Revista $data)
+    public function Registrar(Cliente $data)
     {
-        $sql  = "begin INSERTARREVISTA(?,?,?,?);end;";
+        $sql  = "begin INSERTARCLIENTE(?,?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->ISSN,
-            $data->TITULO_REVISTA,
-            $data->NUMERO,
-            $data->FECHA
+            $data->ID_CLIENTE,
+            $data->NOMBRE_CLIENTE,
+            $data->APELLIDO1_CLIENTE,
+            $data->APELLIDO2_CLIENTE,
+            $data->CORREO
         ));
     }
     
     // Función para eliminar un registro de la tabla
-    public function Eliminar($ISSN)
+    public function Eliminar($ID_CLIENTE)
     {
         try {
-            $sql  = "begin ELIMINARREVISTA({$ISSN});end;";
+            $sql  = "begin ELIMINARCLIENTE({$ID_CLIENTE});end;";
             $stmt = $this->oracle->prepare($sql);
             $stmt->execute();
             
@@ -68,16 +70,17 @@ class Revista
     }
     
     // Función para actualizar un registro de la tabla
-    public function Actualizar(Revista $data)
+    public function Actualizar(Cliente $data)
     {
         try {
-            $sql  = "begin REVISTAUPDATE(?,?,?,?);end;";
+            $sql  = "begin CLIENTEUPDATE(?,?,?,?,?);end;";
             $stmt = $this->oracle->prepare($sql);
             return $stmt->execute(array(
-                $data->ISSN,
-                $data->TITULO_REVISTA,
-                $data->NUMERO,
-                $data->FECHA
+                $data->ID_CLIENTE,
+                $data->NOMBRE_CLIENTE,
+                $data->APELLIDO1_CLIENTE,
+                $data->APELLIDO2_CLIENTE,
+                $data->CORREO
             ));
         }
         catch (Exception $e) {

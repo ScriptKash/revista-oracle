@@ -6,20 +6,21 @@ $(document).on("ready", function() {
 });
 
 function Actualizar() {
-  $("#tabla").on("click", ".btnEditarRevista", function() {
+  $("#tabla").on("click", ".btnEditarCliente", function() {
       d = $(this).parents("tr").find("td");
-      $("#labelISSN").hide();
-      $("#ISSN").val(d[0].innerText).hide();
-      $("#TITULO_REVISTA").val(d[1].innerText);
-      $("#NUMERO").val(d[2].innerText);
-      $("#FECHA").val(d[3].innerText);
+      $("#labelID_CLIENTE").hide();
+      $("#ID_CLIENTE").val(d[0].innerText).hide();
+      $("#NOMBRE_CLIENTE").val(d[1].innerText);
+      $("#APELLIDO1_CLIENTE").val(d[2].innerText);
+      $("#APELLIDO2_CLIENTE").val(d[3].innerText);
+      $("#CORREO").val(d[4].innerText);
       __('nn').innerHTML = "Editar";
 
   });
 }
 
 function Eliminar() {
-  $("#tabla").on("click", ".btnElinimarRevista", function() {
+  $("#tabla").on("click", ".btnEliminarCliente", function() {
       d = $(this).parents("tr").find("td");
 
 
@@ -39,9 +40,9 @@ function Eliminar() {
 
           $.ajax({
               type: 'POST',
-              url: "?c=Revista&a=Eliminar",
+              url: "?c=Cliente&a=Eliminar",
               data: {
-                  'ISSN': d[0].innerText
+                  'ID_CLIENTE': d[0].innerText
               },
               success: function(result) {
 
@@ -76,7 +77,7 @@ function Eliminar() {
 }
 
 function Guardar() {
-  $("#frm-revista").on("submit", function(e) {
+  $("#frm-cliente").on("submit", function(e) {
       e.preventDefault();
       //Guardamos la referencia al formulario
       var $f = $(this);
@@ -85,12 +86,13 @@ function Guardar() {
           //No esta bloqueado aun, bloqueamos, preparamos y enviamos la peticion
           $.ajax({
               type: 'POST',
-              url: "?c=Revista&a=Guardar",
+              url: "?c=Cliente&a=Guardar",
               data: {
-                  'ISSN': $("#ISSN").val(),
-                  'TITULO_REVISTA': $("#TITULO_REVISTA").val(),
-                  'NUMERO': $("#NUMERO").val(),
-                  'FECHA': $("#FECHA").val(),
+                  'ID_CLIENTE': $("#ID_CLIENTE").val(),
+                  'NOMBRE_CLIENTE': $("#NOMBRE_CLIENTE").val(),
+                  'APELLIDO1_CLIENTE': $("#APELLIDO1_CLIENTE").val(),
+                  'APELLIDO2_CLIENTE': $("#APELLIDO2_CLIENTE").val(),
+                  'CORREO': $("#CORREO").val(),
                   'acc': __("nn").innerHTML
               },
               beforeSend: function() {
@@ -137,10 +139,11 @@ function __(id) {
 }
 
 function limpiar() {
-  $("#ISSN").val("");
-  $("#TITULO_REVISTA").val("");
-  $("#NUMERO").val("");
-  $("#FECHA").val("");
+  $("#ID_CLIENTE").val("");
+  $("#NOMBRE_CLIENTE").val("");
+  $("#APELLIDO1_CLIENTE").val("");
+  $("#APELLIDO2_CLIENTE").val("");
+  $("#CORREO").val("");
   __('nn').innerHTML = "Nuevo";
 }
 
@@ -151,25 +154,28 @@ function Listar() {
       "bDeferRender": true,
       "sPaginationType": "full_numbers",
       "ajax": {
-          "url": "?c=Revista&a=Listar",
+          "url": "?c=Cliente&a=Listar",
           "type": "POST"
       },
       "columns": [{
-              "data": "ISSN"
+              "data": "ID_CLIENTE"
           },
           {
-              "data": "TITULO_REVISTA"
+              "data": "NOMBRE_CLIENTE"
           },
           {
-              "data": "NUMERO"
+              "data": "APELLIDO1_CLIENTE"
           },
           {
-              "data": "FECHA"
+              "data": "APELLIDO2_CLIENTE"
+          },
+          {
+            "data": "CORREO"
           },
           {
               "data": null,
-              "defaultContent": "<button class='btn bg-gradient-warning btnEditarRevista ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
-              <button class='btn bg-gradient-danger btnElinimarRevista'><span class='fa fa-trash'></span></button>"
+              "defaultContent": "<button class='btn bg-gradient-warning btnEditarCliente ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
+              <button class='btn bg-gradient-danger btnEliminarCliente'><span class='fa fa-trash'></span></button>"
           }
       ],
 

@@ -16,11 +16,11 @@
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="nav-item <?php echo ($page == 'index') ? "active" : ""; ?>"><a href="?c=inicio"><i class="feather icon-home"></i><span class="menu-title">Inicio</span></a>
                 </li>
-                <li class="nav-item <?php echo ($page == 'clientes') ? "active" : ""; ?>"><a href=""><i class="feather icon-users"></i><span class="menu-title">Clientes</span></a>
+                <li class="nav-item <?php echo ($page == 'clientes') ? "active" : ""; ?>"><a href="?c=cliente"><i class="feather icon-users"></i><span class="menu-title">Clientes</span></a>
                 </li>
-                <li class="nav-item <?php echo ($page == 'autores') ? "active" : ""; ?>"><a href=""><i class="feather icon-edit-2"></i><span class="menu-title">Autores</span></a>
+                <li class="nav-item <?php echo ($page == 'autores') ? "active" : ""; ?>"><a href="?c=autor"><i class="feather icon-edit-2"></i><span class="menu-title">Autores</span></a>
                 </li>
-                <li class="nav-item <?php echo ($page == 'articulos') ? "active" : ""; ?>"><a href=""><i class="feather icon-file"></i><span class="menu-title">Artículos</span></a>
+                <li class="nav-item <?php echo ($page == 'articulos') ? "active" : ""; ?>"><a href="?c=articulo"><i class="feather icon-file"></i><span class="menu-title">Artículos</span></a>
                 </li>
                 <li class="nav-item <?php echo ($page == 'revistas') ? "active" : ""; ?>"><a href="?c=revista"><i class="feather icon-file-text"></i><span class="menu-title">Revistas</span></a>
                 </li>
