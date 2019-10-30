@@ -14,25 +14,26 @@ class RevistaController {
         exit();
     }
     public function Guardar() {
-        $per = new Revista();
-        $per->issn = $_POST['issn'];
-        $per->titulo = $_POST['titulo'];
-        $per->numero = $_POST['numero'];
-        $per->fecha = $_POST['fecha'];
+
+        $revista = new Revista();
+        $revista->ISSN = $_POST['ISSN'];
+        $revista->TITULO_REVISTA = $_POST['TITULO_REVISTA'];
+        $revista->NUMERO = $_POST['NUMERO'];
+        $revista->FECHA = $_POST['FECHA'];
         $condicion = $_POST['acc'];
 
         if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($per);
+            $result = $this->model->Actualizar($revista);
             echo $result;
             exit();
         } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($per);
+            $result = $this->model->Registrar($revista);
             echo $result;
             exit();
         }
     }
     public function Eliminar() {
-        $result = $this->model->Eliminar($_POST['issn']);
+        $result = $this->model->Eliminar($_POST['ISSN']);
         echo $result;
         exit();
     }

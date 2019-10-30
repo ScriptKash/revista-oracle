@@ -3,10 +3,11 @@
 class Revista
 {
     private $oracle;
-    public $issn;
-    public $titulo;
-    public $nombre;
-    public $fecha;
+    private $n;
+    public $ISSN;
+    public $TITULO_REVISTA;
+    public $NUMERO;
+    public $FECHA;
 
     function __construct() {
         
@@ -16,67 +17,76 @@ class Revista
             $pdo_string = 'oci:dbname='.$tns;
 
             try {
-                $dbh = new PDO($pdo_string, 'BR', 'br');
+                $this->oracle = new PDO($pdo_string, 'BR', 'br');
             } catch (PDOException $e) {
                 echo "Failed to obtain database handle: " . $e->getMessage();
                 exit;
             }
 
+            $this->n=array();
+
     }
     
     
-    public function listar()
+    public function Listar()
     {
         $sql  = 'SELECT * from REVISTA';
         $stmt = $this->oracle->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
-    
-    public function Eliminar($issn)
+
+    public function Registrar(Revista $data)
     {
-        try {
-            
-            $sql  = "SELECT fneliminardoctor(?);";
-            $stmt = $this->oracle->prepare($sql);
-            return $stmt->execute(array(
-                $issn
-            ));
-            
-        }
-        catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
-    
-    public function Actualizar(Doctor $data)
-    {
-        try {
-            $sql  = "SELECT fneditardoctor(?,?,?,?,?);";
-            $stmt = $this->oracle->prepare($sql);
-            return $stmt->execute(array(
-                $data->issn,
-                $data->titulo,
-                $data->nombre,
-                $data->fecha,
-                
-            ));
-        }
-        catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
-    
-    public function Registrar(Doctor $data)
-    {
-        $sql  = 'SELECT fninsertardoctor(?,?,?,?,?);';
+        $sql  = "begin INSERTARREVISTA(?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->issn,
-            $data->titulo,
-            $data->nombre,
-            $data->fecha,
-            
+            $data->ISSN,
+            $data->TITULO_REVISTA,
+            $data->NUMERO,
+            $data->FECHA
         ));
+    }
+
+    // public function Eliminar($ISSN)
+    // {
+    //     try {
+    //     $sql = "DELETE FROM REVISTA WHERE ISSN = {$ISSN}";
+    //         $stmt = $this->oracle->prepare($sql);
+    //         $stmt->execute();
+    //     }
+    //     catch (Exception $e) {
+    //         die($e->getMessage());
+    //     }
+    // }
+    
+    public function Eliminar($ISSN)
+    {
+        try {
+            $sql  = "begin ELIMINARREVISTA({$ISSN});end;";
+            $stmt = $this->oracle->prepare($sql);
+            $stmt->execute();
+            
+        }
+        catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    
+    public function Actualizar(Revista $data)
+    {
+        try {
+            $sql  = "begin REVISTAUPDATE(?,?,?,?);end;";
+            $stmt = $this->oracle->prepare($sql);
+            return $stmt->execute(array(
+                $data->ISSN,
+                $data->TITULO_REVISTA,
+                $data->NUMERO,
+                $data->FECHA
+            ));
+        }
+        catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 }

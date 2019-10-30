@@ -4,9 +4,10 @@
 <head>
     <?php include("includes/head-tag-contents.php");?>
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/datatables.min.css">
-    
-    <!-- <script src="assets/js/jquery.dataTables.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
     <script src="assets/js/ajax_revista.js"></script>
+    <link rel="stylesheet" href="assets/css/sweetalert2.min.css">
+    <script src="assets/js/sweetalert2.min.js"></script>
 </head>
 <body class="horizontal-layout horizontal-menu 2-columns  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
 
@@ -23,40 +24,8 @@
                 </div>
             </div>
             <div class="content-body">
-                
             
-            <!-- Zero configuration table -->
-            <section id="basic-datatable">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Lista de revistas</h4>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body card-dashboard">
-                                    <div class="table-responsive">
-                                            <table id="tabla" class="table">
-                                              <thead>
-                                                  <tr>
-                                                      <th>ISSN</th>
-                                                      <th>Título</th>
-                                                      <th>Número</th>
-                                                      <th>Fecha</th>
-                                                      <th></th>
-                                                  </tr>
-                                              </thead>
-                                               <tbody>
-                                               </tbody>
-                                           </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!--/ Zero configuration table -->
+            <?php include("views/revista/revista.php");?>
 
             </div>
         </div>
@@ -75,6 +44,12 @@
 <script src="app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
 <script src="app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 <script src="app-assets/js/scripts/datatables/datatable.js"></script>
+
+<script src="app-assets/vendors/js/pickers/pickadate/picker.js"></script>
+    <script src="app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
+    <script src="app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
+    <script src="app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+    <script src="app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
 
 </body>
 </html>
