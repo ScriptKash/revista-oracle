@@ -7,23 +7,21 @@ $(document).on("ready", function() {
 });
 
 function Actualizar() {
-  $("#tabla").on("click", ".btnEditarAutor", function() {
+  $("#tabla").on("click", ".btnEditarArticulo", function() {
       d = $(this).parents("tr").find("td");
-      $("#labelID_AUTOR").hide();
-      $("#ID_AUTOR").val(d[0].innerText).hide();
-      $("#NOMBRE_AUTOR").val(d[1].innerText);
-      $("#APELLIDO1").val(d[2].innerText);
-      $("#APELLIDO2").val(d[3].innerText);
-      $("#CORREO").val(d[4].innerText);
-      $("#ADSCRIPCION").val(d[5].innerText);
-      $("#POSICION").val(d[6].innerText);
+      $("#labelID_ARTICULO").hide();
+      $("#ID_ARTICULO").val(d[0].innerText).hide();
+      $("#TITULO_ARTICULO").val(d[1].innerText);
+      $("#PAGINA_INICIO").val(d[2].innerText);
+      $("#PAGIN_FIN").val(d[3].innerText);
+      $("#ISSN_ID").val(d[4].innerText);
       __('nn').innerHTML = "Editar";
 
   });
 }
 
 function Eliminar() {
-  $("#tabla").on("click", ".btnEliminarAutor", function() {
+  $("#tabla").on("click", ".btnEliminarArticulo", function() {
       d = $(this).parents("tr").find("td");
 
 
@@ -43,9 +41,9 @@ function Eliminar() {
 
           $.ajax({
               type: 'POST',
-              url: "?c=Autor&a=Eliminar",
+              url: "?c=Articulo&a=Eliminar",
               data: {
-                  'ID_AUTOR': d[0].innerText
+                  'ID_ARTICULO': d[0].innerText
               },
               success: function(result) {
 
@@ -80,7 +78,7 @@ function Eliminar() {
 }
 
 function Guardar() {
-  $("#frm-autor").on("submit", function(e) {
+  $("#frm-cliente").on("submit", function(e) {
       e.preventDefault();
       //Guardamos la referencia al formulario
       var $f = $(this);
@@ -89,15 +87,13 @@ function Guardar() {
           //No esta bloqueado aun, bloqueamos, preparamos y enviamos la peticion
           $.ajax({
               type: 'POST',
-              url: "?c=Autor&a=Guardar",
+              url: "?c=Articulo&a=Guardar",
               data: {
-                  'ID_AUTOR': $("#ID_AUTOR").val(),
-                  'NOMBRE_AUTOR': $("#NOMBRE_AUTOR").val(),
-                  'APELLIDO1': $("#APELLIDO1").val(),
-                  'APELLIDO2': $("#APELLIDO2").val(),
-                  'CORREO': $("#CORREO").val(),
-                  'ADSCRIPCION': $("#ADSCRIPCION").val(),
-                  'POSICION': $("#POSICION").val(),
+                  'ID_ARTICULO': $("#ID_ARTICULO").val(),
+                  'TITULO_ARTICULO': $("#TITULO_ARTICULO").val(),
+                  'PAGINA_INICIO': $("#PAGINA_INICIO").val(),
+                  'PAGIN_FIN': $("#PAGIN_FIN").val(),
+                  'ISSN_ID': $("#ISSN_ID").val(),
                   'acc': __("nn").innerHTML
               },
               beforeSend: function() {
@@ -144,13 +140,11 @@ function __(id) {
 }
 
 function limpiar() {
-  $("#ID_AUTOR").val("");
-  $("#NOMBRE_AUTOR").val("");
-  $("#APELLIDO1").val("");
-  $("#APELLIDO2").val("");
-  $("#CORREO").val("");
-  $("#ADSCRIPCION").val("");
-  $("#POSICION").val("");
+  $("#ID_ARTICULO").val("");
+  $("#TITULO_ARTICULO").val("");
+  $("#PAGINA_INICIO").val("");
+  $("#PAGIN_FIN").val("");
+  $("#ISSN_ID").val("");
   __('nn').innerHTML = "Nuevo";
 }
 
@@ -161,34 +155,28 @@ function Listar() {
       "bDeferRender": true,
       "sPaginationType": "full_numbers",
       "ajax": {
-          "url": "?c=Autor&a=Listar",
+          "url": "?c=Articulo&a=Listar",
           "type": "POST"
       },
       "columns": [{
-              "data": "ID_AUTOR"
+              "data": "ID_ARTICULO"
           },
           {
-              "data": "NOMBRE_AUTOR"
+              "data": "TITULO_ARTICULO"
           },
           {
-              "data": "APELLIDO1"
+              "data": "PAGINA_INICIO"
           },
           {
-              "data": "APELLIDO2"
+              "data": "PAGINA_FIN"
           },
           {
-            "data": "CORREO"
-          },
-          {
-            "data": "ADSCRIPCION"
-          },
-          {
-            "data": "POSICION"
+            "data": "ISSN_ID"
           },
           {
               "data": null,
-              "defaultContent": "<button class='btn bg-gradient-warning btnEditarAutor ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
-              <button class='btn bg-gradient-danger btnEliminarAutor'><span class='fa fa-trash'></span></button>"
+              "defaultContent": "<button class='btn bg-gradient-warning btnEditarArticulo ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
+              <button class='btn bg-gradient-danger btnEliminarArticulo'><span class='fa fa-trash'></span></button>"
           }
       ],
 
@@ -224,72 +212,66 @@ var idioma_espanol = {
 }
 
 function ListarAuditoria() {
-  var table = $("#tablaAuditoria").DataTable({
-      "destroy": true,
-      "responsive": true,
-      "bDeferRender": true,
-      "sPaginationType": "full_numbers",
-      "ajax": {
-          "url": "?c=Autor&a=ListarAuditoria",
-          "type": "POST"
-      },
-      "columns": [
-          {
-              "data": "USUARIO"
-          },
-          {
-              "data": "FECHA_ACTUAL"
-          },
-          {
-              "data": "ID_AUTOR"
-          },
-          {
-              "data": "NOMBRE_AUTOR"
-          },
-          {
-              "data": "APELLIDO1"
-          },
-          {
-              "data": "APELLIDO2"
-          },
-          {
-            "data": "CORREO"
-          },
-          {
-            "data": "ADSCRIPCION"
-          },
-          {
-            "data": "POSICION"
-          }
-      ],
-
-      "language": idioma_espanol
-  });
-}
-
-
-var idioma_espanol = {
-
-  "sProcessing": "Procesando...",
-  "sLengthMenu": "Mostrar _MENU_ registros",
-  "sZeroRecords": "No se encontraron resultados",
-  "sEmptyTable": "Ningún dato disponible en esta tabla",
-  "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-  "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-  "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-  "sInfoPostFix": "",
-  "sSearch": "Buscar:",
-  "sUrl": "",
-  "sInfoThousands": ",",
-  "sLoadingRecords": "Cargando...",
-  "oPaginate": {
-      "sFirst": "Primero",
-      "sLast": "Último",
-      "sNext": "Siguiente",
-      "sPrevious": "Anterior"
-  },
-  "oAria": {
-      "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    var table = $("#tablaAuditoria").DataTable({
+        "destroy": true,
+        "responsive": true,
+        "bDeferRender": true,
+        "sPaginationType": "full_numbers",
+        "ajax": {
+            "url": "?c=Articulo&a=ListarAuditoria",
+            "type": "POST"
+        },
+        "columns": [
+            {
+                "data": "USUARIO"
+            },
+            {
+                "data": "FECHA_ACTUAL"
+            },
+            {
+                "data": "ID_ARTICULO"
+            },
+            {
+                "data": "TITULO_ARTICULO"
+            },
+            {
+                "data": "PAGINA_INICIO"
+            },
+            {
+                "data": "PAGINA_FIN"
+            },
+            {
+              "data": "ISSN_ID"
+            }
+        ],
+  
+        "language": idioma_espanol
+    });
   }
-}
+  
+  
+  var idioma_espanol = {
+  
+    "sProcessing": "Procesando...",
+    "sLengthMenu": "Mostrar _MENU_ registros",
+    "sZeroRecords": "No se encontraron resultados",
+    "sEmptyTable": "Ningún dato disponible en esta tabla",
+    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sSearch": "Buscar:",
+    "sUrl": "",
+    "sInfoThousands": ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+        "sFirst": "Primero",
+        "sLast": "Último",
+        "sNext": "Siguiente",
+        "sPrevious": "Anterior"
+    },
+    "oAria": {
+        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+  }

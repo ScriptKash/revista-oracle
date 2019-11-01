@@ -3,6 +3,9 @@ $(document).on("ready", function() {
   Guardar();
   Eliminar();
   Actualizar();
+  ListarAuditoria();
+
+  
 });
 
 function Actualizar() {
@@ -12,7 +15,8 @@ function Actualizar() {
       $("#ISSN").val(d[0].innerText).hide();
       $("#TITULO_REVISTA").val(d[1].innerText);
       $("#NUMERO").val(d[2].innerText);
-      $("#FECHA").val(d[3].innerText);
+      $("#FECHA_PUBLICACION").val(d[3].innerText);
+      $("#PRECIO").val(d[4].innerText);
       __('nn').innerHTML = "Editar";
 
   });
@@ -90,7 +94,8 @@ function Guardar() {
                   'ISSN': $("#ISSN").val(),
                   'TITULO_REVISTA': $("#TITULO_REVISTA").val(),
                   'NUMERO': $("#NUMERO").val(),
-                  'FECHA': $("#FECHA").val(),
+                  'FECHA_PUBLICACION': $("#FECHA_PUBLICACION").val(),
+                  'PRECIO': $("#PRECIO").val(),
                   'acc': __("nn").innerHTML
               },
               beforeSend: function() {
@@ -140,7 +145,8 @@ function limpiar() {
   $("#ISSN").val("");
   $("#TITULO_REVISTA").val("");
   $("#NUMERO").val("");
-  $("#FECHA").val("");
+  $("#FECHA_PUBLICACION").val("");
+  $("#PRECIO").val("");
   __('nn').innerHTML = "Nuevo";
 }
 
@@ -164,7 +170,10 @@ function Listar() {
               "data": "NUMERO"
           },
           {
-              "data": "FECHA"
+              "data": "FECHA_PUBLICACION"
+          },
+          {
+            "data": "PRECIO"
           },
           {
               "data": null,
@@ -203,3 +212,68 @@ var idioma_espanol = {
       "sSortDescending": ": Activar para ordenar la columna de manera descendente"
   }
 }
+
+function ListarAuditoria() {
+    var table = $("#tablaAuditoria").DataTable({
+        "destroy": true,
+        "responsive": true,
+        "bDeferRender": true,
+        "sPaginationType": "full_numbers",
+        "ajax": {
+            "url": "?c=Revista&a=ListarAuditoria",
+            "type": "POST"
+        },
+        "columns": [
+            {
+                "data": "USUARIO"
+            },
+            {
+                "data": "FECHA"
+            },
+            {
+                "data": "ISSN"
+            },
+            {
+                "data": "TITULO_REVISTA"
+            },
+            {
+                "data": "NUMERO"
+            },
+            {
+                "data": "FECHA_PUBLICACION"
+            },
+            {
+              "data": "PRECIO"
+            }
+        ],
+  
+        "language": idioma_espanol
+    });
+  }
+  
+  
+  var idioma_espanol = {
+  
+    "sProcessing": "Procesando...",
+    "sLengthMenu": "Mostrar _MENU_ registros",
+    "sZeroRecords": "No se encontraron resultados",
+    "sEmptyTable": "Ningún dato disponible en esta tabla",
+    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sSearch": "Buscar:",
+    "sUrl": "",
+    "sInfoThousands": ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+        "sFirst": "Primero",
+        "sLast": "Último",
+        "sNext": "Siguiente",
+        "sPrevious": "Anterior"
+    },
+    "oAria": {
+        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+  }

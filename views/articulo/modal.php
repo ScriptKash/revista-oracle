@@ -9,13 +9,13 @@
           <br>
           </div>
         <div class="modal-body">
-                <form id="frm-autor" data-locked="false">
+                <form id="frm-cliente" data-locked="false">
                         <div class="row">
                           <div class="col col-md-12">
                               <div class="form-group">
-                                <label id="labelID_AUTOR" class="col col-md-3">ID autor</label>
+                                <label id="labelID_ARTICULO" class="col col-md-3">ID artículo</label>
                                 <div class="col col-md-9">
-                                <input type="number" class="form-control" id="ID_AUTOR"  placeholder="Ingrese la identificación del autor" required>
+                                <input type="number" class="form-control" id="ID_ARTICULO"  placeholder="Ingrese la identificación del artículo" required>
                                 </div>
                               </div>
                             </div>
@@ -24,9 +24,9 @@
                           <div class="row">
                             <div class="col col-md-12">
                                 <div class="form-group">
-                                  <label class="col col-md-3">Nombre</label>
+                                  <label class="col col-md-3">Título artículo</label>
                                   <div class="col col-md-9">
-                                  <input type="text" class="form-control" id="NOMBRE_AUTOR" placeholder="Ingrese el nombre"  required>
+                                  <input type="text" class="form-control" id="TITULO_ARTICULO" placeholder="Ingrese el título"  required>
                                 </div>
                                 </div>
                               </div>
@@ -35,9 +35,9 @@
                             <div class="row">
                               <div class="col col-md-12">
                                   <div class="form-group">
-                                    <label class="col col-md-6">Primer apellido</label>
+                                    <label class="col col-md-6">Página inicio</label>
                                     <div class="col col-md-9">
-                                    <input type="text" class="form-control" id="APELLIDO1" placeholder="Ingrese el primer apellido"  required>
+                                    <input type="number" class="form-control" id="PAGINA_INICIO" placeholder="Ingrese la página de inicio"  required>
                                   </div>
                                   </div>
                                 </div>
@@ -46,10 +46,10 @@
                       <div class="row">
                        <div class="col col-md-12">
                          <div class="form-group">
-                             <label class="col col-md-6">Segundo apellido</label>
+                             <label class="col col-md-6">Página fin</label>
                          <div class="col col-md-9">
                        <div class="input-group">
-                       <input type="text" class="form-control" id="APELLIDO2" placeholder="Ingrese el segundo apellido" required>
+                       <input type="text" class="form-control" id="PAGIN_FIN" placeholder="Ingrese la página fin" required>
                        </div>
                       </div>
                     </div>
@@ -59,36 +59,10 @@
                 <div class="row">
                     <div class="col col-md-12">
                       <div class="form-group">
-                          <label class="col col-md-6">Correo electrónico</label>
+                          <label class="col col-md-6">ISSN ID</label>
                       <div class="col col-md-9">
                     <div class="input-group">
-                    <input type="email" class="form-control" id="CORREO" placeholder="Ingrese el correo electrónico" required>
-                    </div>
-                   </div>
-                 </div>
-                </div>
-             </div>
-
-             <div class="row">
-                    <div class="col col-md-12">
-                      <div class="form-group">
-                          <label class="col col-md-6">Adscripción</label>
-                      <div class="col col-md-9">
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="ADSCRIPCION" placeholder="Ingrese la adscripción" required>
-                    </div>
-                   </div>
-                 </div>
-                </div>
-             </div>
-
-             <div class="row">
-                    <div class="col col-md-12">
-                      <div class="form-group">
-                          <label class="col col-md-6">Posición</label>
-                      <div class="col col-md-9">
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="POSICION" placeholder="Ingrese la posición" required>
+                    <input type="number" class="form-control" id="ISSN_ID" placeholder="Ingrese el identificador de la revista" required>
                     </div>
                    </div>
                  </div>

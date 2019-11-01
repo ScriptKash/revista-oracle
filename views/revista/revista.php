@@ -25,7 +25,8 @@
                                                       <th>ISSN</th>
                                                       <th>Título</th>
                                                       <th>Número</th>
-                                                      <th>Fecha</th>
+                                                      <th>Fecha de publicación</th>
+                                                      <th>Precio</th>
                                                       <th></th>
                                                   </tr>
                                               </thead>
@@ -39,5 +40,40 @@
                         </div>
                     </div>
                 </section>
+
+                <section id="basic-datatable">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Auditoria</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body card-dashboard">
+                                    <div class="table-responsive">
+                                            <table id="tablaAuditoria" class="table">
+                                              <thead>
+                                                  <tr>
+                                                      <th>Usuario</th>
+                                                      <th>Fecha</th>
+                                                      <th>ISSN</th>
+                                                      <th>Título</th>
+                                                      <th>Número</th>
+                                                      <th>Fecha de publicación</th>
+                                                      <th>Precio</th>
+                                                  </tr>
+                                              </thead>
+                                               <tbody>
+                                               </tbody>
+                                           </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
                 <?php include("views/revista/modal.php");?>
 <!--/ Zero configuration table -->

@@ -35,16 +35,16 @@
         ]
     });
 
-    // Picker Translations
-    $( '.pickadate-translations' ).pickadate({
-        formatSubmit: 'dd/mm/yyyy',
-        monthsFull: [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ],
-        monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec' ],
-        weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],
-        today: 'aujourd\'hui',
-        clear: 'clair',
-        close: 'Fermer'
-    });
+    // // Picker Translations ES
+    // $( '.pickadate-translations' ).pickadate({
+    //     formatSubmit: 'yy/mm/dd',
+    //     monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    //     monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+    //     weekdaysShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+    //     today: 'Hoy',
+    //     clear: 'Limpiar',
+    //     close: 'Cerrar'
+    // });
 
     // Month Select Picker
     $('.pickadate-months').pickadate({

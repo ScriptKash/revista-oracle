@@ -5,15 +5,14 @@
     <?php include("includes/head-tag-contents.php");?>
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
-
-    <script src="assets/js/ajax_revista.js"></script>
+    <script src="assets/js/ajax_articulo.js"></script>
     <link rel="stylesheet" href="assets/css/sweetalert2.min.css">
     <script src="assets/js/sweetalert2.min.js"></script>
 </head>
 <body class="horizontal-layout horizontal-menu 2-columns  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
 
 <?php include("includes/header.php");?>
-<?php $page = 'revistas'; include('includes/menu.php'); ?>
+<?php $page = 'articulos'; include('includes/menu.php'); ?>
 
 <!-- BEGIN: Content-->
 <div class="app-content content">
@@ -26,7 +25,7 @@
             </div>
             <div class="content-body">
             
-            <?php include("views/revista/revista.php");?>
+            <?php include("views/articulo/articulo.php");?>
 
             </div>
         </div>
@@ -51,20 +50,6 @@
     <script src="app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
     <script src="app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
     <script src="app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
-
-    <script type="text/javascript">
-    
-    // Picker Translations ES
-    $( '.pickadate-translations' ).pickadate({
-        formatSubmit: 'dd/mm/yy',
-        monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-        weekdaysShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-        today: 'Hoy',
-        clear: 'Limpiar',
-        close: 'Cerrar'
-    });
-    </script>
 
 </body>
 </html>

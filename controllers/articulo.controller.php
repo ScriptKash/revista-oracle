@@ -1,12 +1,12 @@
 <?php
-require_once 'models/Revista.php';
-class RevistaController {
+require_once 'models/Articulo.php';
+class ArticuloController {
     private $model;
     public function __CONSTRUCT() {
-        $this->model = new Revista();
+        $this->model = new Articulo();
     }
     public function Index() {
-        require_once 'views/revista/index.php';
+        require_once 'views/articulo/index.php';
     }
     public function Listar() {
         $resultSet["data"] = $this->model->Listar();
@@ -20,26 +20,26 @@ class RevistaController {
     }
     public function Guardar() {
 
-        $revista = new Revista();
-        $revista->ISSN = $_POST['ISSN'];
-        $revista->TITULO_REVISTA = $_POST['TITULO_REVISTA'];
-        $revista->NUMERO = $_POST['NUMERO'];
-        $revista->FECHA_PUBLICACION = $_POST['FECHA_PUBLICACION'];
-        $revista->PRECIO = $_POST['PRECIO'];
+        $articulo = new Articulo();
+        $articulo->ID_ARTICULO = $_POST['ID_ARTICULO'];
+        $articulo->TITULO_ARTICULO = $_POST['TITULO_ARTICULO'];
+        $articulo->PAGINA_INICIO = $_POST['PAGINA_INICIO'];
+        $articulo->PAGIN_FIN = $_POST['PAGIN_FIN'];
+        $articulo->ISSN_ID = $_POST['ISSN_ID'];
         $condicion = $_POST['acc'];
 
         if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($revista);
+            $result = $this->model->Actualizar($articulo);
             echo $result;
             exit();
         } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($revista);
+            $result = $this->model->Registrar($articulo);
             echo $result;
             exit();
         }
     }
     public function Eliminar() {
-        $result = $this->model->Eliminar($_POST['ISSN']);
+        $result = $this->model->Eliminar($_POST['ID_ARTICULO']);
         echo $result;
         exit();
     }

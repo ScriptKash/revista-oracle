@@ -1,17 +1,17 @@
 <?php
 
-class Cliente
+class Articulo
 {
     // Configuraciones para que funcione la conexión
     private $oracle;
     private $n;
 
     // Atributos de la tabla
-    public $ID_CLIENTE;
-    public $NOMBRE_CLIENTE;
-    public $APELLIDO1_CLIENTE;
-    public $APELLIDO2_CLIENTE;
-    public $CORREO;
+    public $ID_ARTICULO;
+    public $TITULO_ARTICULO;
+    public $PAGINA_INICIO;
+    public $PAGIN_FIN;
+    public $ISSN_ID;
 
     function __construct() {
         
@@ -35,31 +35,38 @@ class Cliente
     // Función para listar todo lo que tenga la tabla
     public function Listar()
     {
-        $sql  = 'SELECT * from CLIENTE';
+        $sql  = 'SELECT * from ARTICULO';
+        $stmt = $this->oracle->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function ListarAuditoria()
+    {
+        $sql  = 'SELECT * from AUDITORIA_ARTICULOS';
         $stmt = $this->oracle->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Función para insertar un registro a la tabla
-    public function Registrar(Cliente $data)
+    public function Registrar(Articulo $data)
     {
-        $sql  = "begin SP_INSERTAR_CLIENTE(?,?,?,?,?);end;";
+        $sql  = "begin SP_INSERTAR_ARTICULO(?,?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->ID_CLIENTE,
-            $data->NOMBRE_CLIENTE,
-            $data->APELLIDO1_CLIENTE,
-            $data->APELLIDO2_CLIENTE,
-            $data->CORREO
+            $data->ID_ARTICULO,
+            $data->TITULO_ARTICULO,
+            $data->PAGINA_INICIO,
+            $data->PAGIN_FIN,
+            $data->ISSN_ID
         ));
     }
     
     // Función para eliminar un registro de la tabla
-    public function Eliminar($ID_CLIENTE)
+    public function Eliminar($ID_ARTICULO)
     {
         try {
-            $sql  = "begin SP_ELIMINAR_CLIENTE({$ID_CLIENTE});end;";
+            $sql  = "begin SP_ELIMINAR_ARTICULO({$ID_ARTICULO});end;";
             $stmt = $this->oracle->prepare($sql);
             $stmt->execute();
             
@@ -70,17 +77,17 @@ class Cliente
     }
     
     // Función para actualizar un registro de la tabla
-    public function Actualizar(Cliente $data)
+    public function Actualizar(Articulo $data)
     {
         try {
-            $sql  = "begin SP_EDITAR_CLIENTE(?,?,?,?,?);end;";
+            $sql  = "begin SP_EDITAR_ARTICULO(?,?,?,?,?);end;";
             $stmt = $this->oracle->prepare($sql);
             return $stmt->execute(array(
-                $data->ID_CLIENTE,
-                $data->NOMBRE_CLIENTE,
-                $data->APELLIDO1_CLIENTE,
-                $data->APELLIDO2_CLIENTE,
-                $data->CORREO
+                $data->ID_ARTICULO,
+                $data->TITULO_ARTICULO,
+                $data->PAGINA_INICIO,
+                $data->PAGIN_FIN,
+                $data->ISSN_ID
             ));
         }
         catch (Exception $e) {

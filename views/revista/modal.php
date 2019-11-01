@@ -49,7 +49,20 @@
                            <label class="col col-md-6">Año publicación</label>
                        <div class="col col-md-9">
                      <div class="input-group">
-                     <input type="text" class="form-control" id="FECHA" placeholder="Ingrese la fecha" required>
+                     <input type='text' class="form-control pickadate-translations" id="FECHA_PUBLICACION" required />
+                     </div>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+
+              <div class="row">
+                     <div class="col col-md-12">
+                       <div class="form-group">
+                           <label class="col col-md-6">Precio</label>
+                       <div class="col col-md-9">
+                     <div class="input-group">
+                     <input type="number" placeholder="Ingrese el precio" class="form-control" id="PRECIO" required />
                      </div>
                       </div>
                   </div>

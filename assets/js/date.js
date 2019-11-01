@@ -1,8 +1,6 @@
-
 $(document).ready(function(){
   $(".fecha").datepicker()
   dateFormat : 'yyyy-mm-dd'
-
 });
   
 $.datepicker.regional['es'] = {
@@ -24,8 +22,6 @@ $.datepicker.regional['es'] = {
 };
 
 $.datepicker.setDefaults($.datepicker.regional['es']);
-
-
 
 $(document).ready(function () {
 

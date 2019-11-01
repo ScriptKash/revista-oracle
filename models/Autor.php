@@ -42,11 +42,18 @@ class Autor
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+    public function ListarAuditoria()
+    {
+        $sql  = 'SELECT * from AUDITORIA_AUTOR';
+        $stmt = $this->oracle->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 
     // Función para insertar un registro a la tabla
-    public function Registrar(Cliente $data)
+    public function Registrar(Autor $data)
     {
-        $sql  = "begin INSERTARAUTOR(?,?,?,?,?,?,?);end;";
+        $sql  = "begin SP_INSERTAR_AUTOR(?,?,?,?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
             $data->ID_AUTOR,
@@ -63,7 +70,7 @@ class Autor
     public function Eliminar($ID_AUTOR)
     {
         try {
-            $sql  = "begin ELIMINARAUTOR({$ID_AUTOR});end;";
+            $sql  = "begin SP_ELIMINAR_AUTOR({$ID_AUTOR});end;";
             $stmt = $this->oracle->prepare($sql);
             $stmt->execute();
             
@@ -74,10 +81,10 @@ class Autor
     }
     
     // Función para actualizar un registro de la tabla
-    public function Actualizar(Cliente $data)
+    public function Actualizar(Autor $data)
     {
         try {
-            $sql  = "begin AUTORUPDATE(?,?,?,?,?,?,?);end;";
+            $sql  = "begin SP_EDITAR_AUTOR(?,?,?,?,?,?,?);end;";
             $stmt = $this->oracle->prepare($sql);
             return $stmt->execute(array(
                 $data->ID_AUTOR,

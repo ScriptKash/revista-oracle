@@ -10,7 +10,8 @@ class Revista
     public $ISSN;
     public $TITULO_REVISTA;
     public $NUMERO;
-    public $FECHA;
+    public $FECHA_PUBLICACION;
+    public $PRECIO;
 
     function __construct() {
         
@@ -40,16 +41,27 @@ class Revista
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function ListarAuditoria()
+    {
+        $sql  = 'SELECT * from AUDITORIA_REVISTAS';
+        $stmt = $this->oracle->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     // Función para insertar un registro a la tabla
     public function Registrar(Revista $data)
     {
-        $sql  = "begin INSERTARREVISTA(?,?,?,?);end;";
+        $data->FECHA_PUBLICACION = date('dd/mm/yy',strtotime($data->FECHA_PUBLICACION));
+
+        $sql  = "begin SP_INSERTAR_REVISTA(?,?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
             $data->ISSN,
             $data->TITULO_REVISTA,
             $data->NUMERO,
-            $data->FECHA
+            $data->FECHA_PUBLICACION,
+            $data->PRECIO
         ));
     }
     
@@ -57,7 +69,7 @@ class Revista
     public function Eliminar($ISSN)
     {
         try {
-            $sql  = "begin ELIMINARREVISTA({$ISSN});end;";
+            $sql  = "begin SP_ELIMINAR_REVISTA({$ISSN});end;";
             $stmt = $this->oracle->prepare($sql);
             $stmt->execute();
             
@@ -71,13 +83,14 @@ class Revista
     public function Actualizar(Revista $data)
     {
         try {
-            $sql  = "begin REVISTAUPDATE(?,?,?,?);end;";
+            $sql  = "begin SP_EDITAR_REVISTA(?,?,?,?,?);end;";
             $stmt = $this->oracle->prepare($sql);
             return $stmt->execute(array(
                 $data->ISSN,
                 $data->TITULO_REVISTA,
                 $data->NUMERO,
-                $data->FECHA
+                $data->FECHA_PUBLICACION,
+                $data->PRECIO
             ));
         }
         catch (Exception $e) {
