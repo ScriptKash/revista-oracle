@@ -20,22 +20,22 @@ class AutorController {
     }
     public function Guardar() {
 
-        $cliente = new Cliente();
-        $cliente->ID_AUTOR = $_POST['ID_AUTOR'];
-        $cliente->NOMBRE_AUTOR = $_POST['NOMBRE_AUTOR'];
-        $cliente->APELLIDO1 = $_POST['APELLIDO1'];
-        $cliente->APELLIDO2 = $_POST['APELLIDO2'];
-        $cliente->CORREO = $_POST['CORREO'];
-        $cliente->ADSCRIPCION = $_POST['ADSCRIPCION'];
-        $cliente->POSICION = $_POST['POSICION'];
+        $autor = new Autor();
+        $autor->ID_AUTOR = $_POST['ID_AUTOR'];
+        $autor->NOMBRE_AUTOR = $_POST['NOMBRE_AUTOR'];
+        $autor->APELLIDO1 = $_POST['APELLIDO1'];
+        $autor->APELLIDO2 = $_POST['APELLIDO2'];
+        $autor->CORREO = $_POST['CORREO'];
+        $autor->ADSCRIPCION = $_POST['ADSCRIPCION'];
+        $autor->POSICION = $_POST['POSICION'];
         $condicion = $_POST['acc'];
 
         if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($cliente);
+            $result = $this->model->Actualizar($autor);
             echo $result;
             exit();
         } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($cliente);
+            $result = $this->model->Registrar($autor);
             echo $result;
             exit();
         }

@@ -160,7 +160,8 @@ function Listar() {
           "url": "?c=Revista&a=Listar",
           "type": "POST"
       },
-      "columns": [{
+      "columns": [
+          {
               "data": "ISSN"
           },
           {
@@ -225,10 +226,13 @@ function ListarAuditoria() {
         },
         "columns": [
             {
+                "data": "ACCION"
+            },
+            {
                 "data": "USUARIO"
             },
             {
-                "data": "FECHA"
+                "data": "FECHA_ACTUAL"
             },
             {
                 "data": "ISSN"

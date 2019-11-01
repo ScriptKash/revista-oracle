@@ -57,6 +57,7 @@ function Eliminar() {
                   }
                   console.log(result);
                   Listar();
+                  ListarAuditoria();
               }
           });
 
@@ -110,6 +111,7 @@ function Guardar() {
                           timer: 1500
                       });
                       Listar();
+                      ListarAuditoria();
                   } else {
                       console.log("Error al guardar");
 
@@ -222,6 +224,9 @@ function ListarAuditoria() {
             "type": "POST"
         },
         "columns": [
+            {
+                "data": "ACCION"
+            },
             {
                 "data": "USUARIO"
             },

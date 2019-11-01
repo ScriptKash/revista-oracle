@@ -54,6 +54,7 @@
                                             <table id="tablaAuditoria" class="table">
                                               <thead>
                                                   <tr>
+                                                      <th>Acción</th>
                                                       <th>Usuario</th>
                                                       <th>Fecha</th>
                                                       <th>ISSN</th>

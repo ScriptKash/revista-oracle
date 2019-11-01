@@ -63,7 +63,7 @@
                       <div class="col col-md-9">
                     <div class="input-group">
                     <input type="number" class="form-control" id="ISSN_ID" placeholder="Ingrese el identificador de la revista" required>
-                    </div>
+                  </div>
                    </div>
                  </div>
                 </div>
