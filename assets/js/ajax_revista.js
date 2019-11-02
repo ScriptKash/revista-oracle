@@ -23,7 +23,7 @@ function Actualizar() {
 }
 
 function Eliminar() {
-  $("#tabla").on("click", ".btnElinimarRevista", function() {
+  $("#tabla").on("click", ".btnEliminarRevista", function() {
       d = $(this).parents("tr").find("td");
 
 
@@ -56,6 +56,15 @@ function Eliminar() {
                           showConfirmButton: false,
                           timer: 1500
                       });
+                  }else{
+                    console.log("Error al guardar");
+                    swal({
+                        type: 'error',
+                        title: 'Error',
+                        text: "¡Esta revista se encuentra en en uso!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).catch(function(timeout) {});
                   }
                   console.log(result);
                   Listar();
@@ -114,14 +123,12 @@ function Guardar() {
                       Listar();
                   } else {
                       console.log("Error al guardar");
-
                       swal({
                           type: 'error',
                           title: 'Error',
                           showConfirmButton: false,
                           timer: 1500
                       }).catch(function(timeout) {});
-
                   }
               },
               complete: function() {
@@ -179,7 +186,7 @@ function Listar() {
           {
               "data": null,
               "defaultContent": "<button class='btn bg-gradient-warning btnEditarRevista ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
-              <button class='btn bg-gradient-danger btnElinimarRevista'><span class='fa fa-trash'></span></button>"
+              <button class='btn bg-gradient-danger btnEliminarRevista'><span class='fa fa-trash'></span></button>"
           }
       ],
 

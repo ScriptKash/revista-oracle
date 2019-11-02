@@ -19,7 +19,6 @@ class RevistaController {
         exit();
     }
     public function Guardar() {
-
         $revista = new Revista();
         $revista->ISSN = $_POST['ISSN'];
         $revista->TITULO_REVISTA = $_POST['TITULO_REVISTA'];

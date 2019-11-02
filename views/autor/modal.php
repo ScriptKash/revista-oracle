@@ -13,7 +13,7 @@
                         <div class="row">
                           <div class="col col-md-12">
                               <div class="form-group">
-                                <label id="labelID_AUTOR" class="col col-md-3">ID autor</label>
+                                <label id="labelID_AUTOR" class="col col-md-3">Cédula</label>
                                 <div class="col col-md-9">
                                 <input type="number" class="form-control" id="ID_AUTOR"  placeholder="Ingrese la identificación del autor" required>
                                 </div>

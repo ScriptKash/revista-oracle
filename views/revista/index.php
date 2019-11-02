@@ -54,15 +54,8 @@
 
     <script type="text/javascript">
     
-    // Picker Translations ES
-    $( '.pickadate-translations' ).pickadate({
-        formatSubmit: 'dd/mm/yy',
-        monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthsShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-        weekdaysShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-        today: 'Hoy',
-        clear: 'Limpiar',
-        close: 'Cerrar'
+    $('.format-picker').pickadate({
+        format: 'dd-M-y'
     });
     </script>
 

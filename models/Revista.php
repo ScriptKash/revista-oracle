@@ -52,8 +52,6 @@ class Revista
     // Función para insertar un registro a la tabla
     public function Registrar(Revista $data)
     {
-        $data->FECHA_PUBLICACION = date('dd/mm/yy',strtotime($data->FECHA_PUBLICACION));
-
         $sql  = "begin SP_INSERTAR_REVISTA(?,?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
