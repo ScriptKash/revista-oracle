@@ -3,7 +3,7 @@
         <div class="card-body">
             <img src="app-assets/images/articulos/articulo.svg" alt="element 03" width="150" height="150" class="float-right px-1">
             <h4 class="card-title text-white mt-3">Listado de artículos</h4>
-            <p class="card-text">Aquí podrás administrar los artículos autores que tenemos</p>
+            <p class="card-text">Aquí podrás administrar los artículos que tenemos</p>
         </div>
     </div>
 </div>
