@@ -21,18 +21,26 @@ class ArticuloController {
     public function Guardar() {
 
         $articulo = new Articulo();
+        $condicion = $_POST['acc'];
+
+        if ($condicion == 'Editar') {
+            
         $articulo->ID_ARTICULO = $_POST['ID_ARTICULO'];
         $articulo->TITULO_ARTICULO = $_POST['TITULO_ARTICULO'];
         $articulo->PAGINA_INICIO = $_POST['PAGINA_INICIO'];
         $articulo->PAGIN_FIN = $_POST['PAGIN_FIN'];
         $articulo->ISSN_ID = $_POST['ISSN_ID'];
-        $condicion = $_POST['acc'];
 
-        if ($condicion == 'Editar') {
             $result = $this->model->Actualizar($articulo);
             echo $result;
             exit();
+
         } elseif ($condicion == 'Nuevo') {
+
+        $articulo->TITULO_ARTICULO = $_POST['TITULO_ARTICULO'];
+        $articulo->PAGINA_INICIO = $_POST['PAGINA_INICIO'];
+        $articulo->PAGIN_FIN = $_POST['PAGIN_FIN'];
+        $articulo->ISSN_ID = $_POST['ISSN_ID'];
             $result = $this->model->Registrar($articulo);
             echo $result;
             exit();
