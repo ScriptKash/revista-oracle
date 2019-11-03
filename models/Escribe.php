@@ -2,18 +2,16 @@
 
 require_once "Conexion.php";
 
-class Revista
+class Escribe
 {
     // Configuraciones para que funcione la conexión
     private $oracle;
     private $n;
 
     // Atributos de la tabla
-    public $ISSN;
-    public $TITULO_REVISTA;
-    public $NUMERO;
-    public $FECHA_PUBLICACION;
-    public $PRECIO;
+    public $ID_ESCRIBE;
+    public $ARTICULO_ID;
+    public $AUTOR_ID;
 
     function __construct() {
         
@@ -37,39 +35,29 @@ class Revista
     // Función para listar todo lo que tenga la tabla
     public function Listar()
     {
-        $sql  = 'SELECT * from REVISTA';
-        $stmt = $this->oracle->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
-    }
-
-    public function ListarAuditoria()
-    {
-        $sql  = 'SELECT * from AUDITORIA_REVISTAS';
+        $sql  = 'SELECT * from ESCRIBE';
         $stmt = $this->oracle->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Función para insertar un registro a la tabla
-    public function Registrar(Revista $data)
+    public function Registrar(Escribe $data)
     {
-        $sql  = "begin SP_INSERTAR_REVISTA(?,?,?,?,?);end;";
+        $sql  = "begin SP_INSERTAR_ESCRIBE(?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->ISSN,
-            $data->TITULO_REVISTA,
-            $data->NUMERO,
-            $data->FECHA_PUBLICACION,
-            $data->PRECIO
+            $data->ID_ESCRIBE,
+            $data->ARTICULO_ID,
+            $data->AUTOR_ID
         ));
     }
     
     // Función para eliminar un registro de la tabla
-    public function Eliminar($ISSN)
+    public function Eliminar($ID_ESCRIBE)
     {
         try {
-            $sql  = "begin SP_ELIMINAR_REVISTA({$ISSN});end;";
+            $sql  = "begin SP_ELIMINAR_ESCRIBE({$ID_ESCRIBE});end;";
             $stmt = $this->oracle->prepare($sql);
             $stmt->execute();
             
@@ -80,17 +68,15 @@ class Revista
     }
     
     // Función para actualizar un registro de la tabla
-    public function Actualizar(Revista $data)
+    public function Actualizar(Escribe $data)
     {
         try {
-            $sql  = "begin SP_EDITAR_REVISTA(?,?,?,?,?);end;";
+            $sql  = "begin SP_EDITAR_ESCRIBE(?,?,?);end;";
             $stmt = $this->oracle->prepare($sql);
             return $stmt->execute(array(
-                $data->ISSN,
-                $data->TITULO_REVISTA,
-                $data->NUMERO,
-                $data->FECHA_PUBLICACION,
-                $data->PRECIO
+                $data->ID_ESCRIBE,
+                $data->ARTICULO_ID,
+                $data->AUTOR_ID
             ));
         }
         catch (Exception $e) {

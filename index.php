@@ -4,6 +4,7 @@ require_once "controllers/revista.controller.php";
 require_once "controllers/cliente.controller.php";
 require_once "controllers/autor.controller.php";
 require_once "controllers/articulo.controller.php";
+require_once "controllers/escribe.controller.php";
 
 if(isset($_REQUEST['c']))
 {

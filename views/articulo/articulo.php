@@ -1,7 +1,7 @@
-<div class="card text-white bg-gradient-info text-center">
+<div class="card text-white bg-gradient-primary text-center">
         <div class="card-content d-flex">
           <div class="card-body">
-            <img src="app-assets/images/autores/autor.svg" alt="element 03" width="150" height="150" class="float-right px-1">
+            <img src="app-assets/images/articulos/articulo.svg" alt="element 03" width="150" height="150" class="float-right px-1">
             <h4 class="card-title text-white mt-3">Listado de artículos</h4>
             <p class="card-text">Aquí podrás administrar los artículos autores que tenemos</p>
           </div>
@@ -14,7 +14,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                <button class="btn bg-gradient-info" type="button" name="button" data-toggle="modal" data-target="#mGuardar" onclick="limpiar();">Agregar artículo</button>
+                                <button class="btn bg-gradient-primary" type="button" name="button" data-toggle="modal" data-target="#mGuardar" onclick="limpiar();">Agregar artículo</button>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">

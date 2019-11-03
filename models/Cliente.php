@@ -1,5 +1,7 @@
 <?php
 
+require_once "Conexion.php";
+
 class Cliente
 {
     // Configuraciones para que funcione la conexión
@@ -16,14 +18,14 @@ class Cliente
     function __construct() {
         
         // Se declara el nombre del Schema de Oracle
-        $dbname = "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.137.1)(PORT = 1521))
-                (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = XE )))";
+        $dbname = '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = '.DB_SERVER.')(PORT = '.DB_PORT.'))
+                (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = '.DB_NAME.' )))';
 
         $pdo_string = 'oci:dbname='.$dbname;
 
         try {
                 // Conexión con Oracle por medio de PDO
-                $this->oracle = new PDO($pdo_string, 'BR', 'br');}
+                $this->oracle = new PDO($pdo_string, DB_USER, DB_PASS);}
 
                 // En caso de un error aquí se mostrará
                 catch (PDOException $e) {

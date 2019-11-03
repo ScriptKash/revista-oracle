@@ -24,6 +24,10 @@
                 </li>
                 <li class="nav-item <?php echo ($page == 'revistas') ? "active" : ""; ?>"><a href="?c=revista"><i class="feather icon-file-text"></i><span class="menu-title">Revistas</span></a>
                 </li>
+                <li class="nav-item <?php echo ($page == 'escribe') ? "active" : ""; ?>"><a href="?c=escribe"><i class="feather icon-edit"></i><span class="menu-title">Escribe</span></a>
+                </li>
+                <li class="nav-item <?php echo ($page == 'suscrito') ? "active" : ""; ?>"><a href="?c=suscrito"><i class="feather icon-star"></i><span class="menu-title">Suscrito</span></a>
+                </li>
                 </ul>
             </div>
         </div>

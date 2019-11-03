@@ -59,10 +59,38 @@
                 <div class="row">
                     <div class="col col-md-12">
                       <div class="form-group">
-                          <label class="col col-md-6">ISSN ID</label>
+                          <label class="col col-md-6">Título revista</label>
                       <div class="col col-md-9">
                     <div class="input-group">
-                    <input type="number" class="form-control" id="ISSN_ID" placeholder="Ingrese el identificador de la revista" required>
+                    <!-- <input type="number" class="form-control" id="ISSN_ID" placeholder="Ingrese el identificador de la revista" required> -->
+                  
+                    <?php
+ 
+                    $conn = oci_connect("BR", "br","localhost/XE");
+                    if (!$conn) {
+                      $m = oci_error();
+                      echo $m['message'], "\n";
+                      exit;
+                    } else {
+                    
+                      echo "";
+                    }
+
+                    $stid = oci_parse($conn,"SELECT ISSN, TITULO_REVISTA from REVISTA");
+
+                    oci_execute($stid);
+
+                    echo "<select class='form-control' id=\"ISSN_ID\">";
+
+                       while ($fila = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+                              echo "<option value=\"".$fila['ISSN']."\"> ".$fila['TITULO_REVISTA']."</option>";
+                    }
+                     echo "</select>";
+
+                     oci_free_statement($stid);
+                     oci_close($conn);
+                    ?>
+
                   </div>
                    </div>
                  </div>

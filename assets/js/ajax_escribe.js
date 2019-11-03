@@ -3,27 +3,24 @@ $(document).on("ready", function() {
   Guardar();
   Eliminar();
   Actualizar();
-  ListarAuditoria();
+  
 });
 
 function Actualizar() {
-  $("#tabla").on("click", ".btnEditarArticulo", function() {
+  $("#tabla").on("click", ".btnEditarEscribe", function() {
       d = $(this).parents("tr").find("td");
-      $("#labelID_ARTICULO").hide();
-      $("#ID_ARTICULO").val(d[0].innerText).hide();
-      $("#TITULO_ARTICULO").val(d[1].innerText);
-      $("#PAGINA_INICIO").val(d[2].innerText);
-      $("#PAGIN_FIN").val(d[3].innerText);
-      $("#ISSN_ID").val(d[4].innerText);
+      $("#labelESCRIBE_ID").hide();
+      $("#ID_ESCRIBE").val(d[0].innerText).hide();
+      $("#ARTICULO_ID").val(d[1].innerText);
+      $("#AUTOR_ID").val(d[2].innerText);
       __('nn').innerHTML = "Editar";
 
   });
 }
 
 function Eliminar() {
-  $("#tabla").on("click", ".btnEliminarArticulo", function() {
+  $("#tabla").on("click", ".btnEliminarEscribe", function() {
       d = $(this).parents("tr").find("td");
-
 
       swal({
           title: '¿Esta seguro que desea eliminar a ' + d[1].innerText + '?',
@@ -41,9 +38,9 @@ function Eliminar() {
 
           $.ajax({
               type: 'POST',
-              url: "?c=Articulo&a=Eliminar",
+              url: "?c=Escribe&a=Eliminar",
               data: {
-                  'ID_ARTICULO': d[0].innerText
+                  'ID_ESCRIBE': d[0].innerText
               },
               success: function(result) {
 
@@ -54,19 +51,9 @@ function Eliminar() {
                           showConfirmButton: false,
                           timer: 1500
                       });
-                  }else{
-                    console.log("Error al guardar");
-                    swal({
-                        type: 'error',
-                        title: 'Error',
-                        text: "¡Este artículo se encuentra en en uso!",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).catch(function(timeout) {});
                   }
                   console.log(result);
                   Listar();
-                  ListarAuditoria();
               }
           });
 
@@ -88,7 +75,7 @@ function Eliminar() {
 }
 
 function Guardar() {
-  $("#frm-cliente").on("submit", function(e) {
+  $("#frm-escribe").on("submit", function(e) {
       e.preventDefault();
       //Guardamos la referencia al formulario
       var $f = $(this);
@@ -97,13 +84,11 @@ function Guardar() {
           //No esta bloqueado aun, bloqueamos, preparamos y enviamos la peticion
           $.ajax({
               type: 'POST',
-              url: "?c=Articulo&a=Guardar",
+              url: "?c=Escribe&a=Guardar",
               data: {
-                  'ID_ARTICULO': $("#ID_ARTICULO").val(),
-                  'TITULO_ARTICULO': $("#TITULO_ARTICULO").val(),
-                  'PAGINA_INICIO': $("#PAGINA_INICIO").val(),
-                  'PAGIN_FIN': $("#PAGIN_FIN").val(),
-                  'ISSN_ID': $("#ISSN_ID").val(),
+                  'ID_ESCRIBE': $("#ID_ESCRIBE").val(),
+                  'ARTICULO_ID': $("#ARTICULO_ID").val(),
+                  'AUTOR_ID': $("#AUTOR_ID").val(),
                   'acc': __("nn").innerHTML
               },
               beforeSend: function() {
@@ -120,17 +105,14 @@ function Guardar() {
                           timer: 1500
                       });
                       Listar();
-                      ListarAuditoria();
                   } else {
                       console.log("Error al guardar");
-
                       swal({
                           type: 'error',
                           title: 'Error',
                           showConfirmButton: false,
                           timer: 1500
                       }).catch(function(timeout) {});
-
                   }
               },
               complete: function() {
@@ -151,11 +133,9 @@ function __(id) {
 }
 
 function limpiar() {
-  $("#ID_ARTICULO").val("");
-  $("#TITULO_ARTICULO").val("");
-  $("#PAGINA_INICIO").val("");
-  $("#PAGIN_FIN").val("");
-  $("#ISSN_ID").val("");
+  $("#ID_ESCRIBE").val("");
+  $("#ARTICULO_ID").val("");
+  $("#AUTOR_ID").val("");
   __('nn').innerHTML = "Nuevo";
 }
 
@@ -166,28 +146,23 @@ function Listar() {
       "bDeferRender": true,
       "sPaginationType": "full_numbers",
       "ajax": {
-          "url": "?c=Articulo&a=Listar",
+          "url": "?c=Escribe&a=Listar",
           "type": "POST"
       },
-      "columns": [{
-              "data": "ID_ARTICULO"
+      "columns": [
+          {
+              "data": "ID_ESCRIBE"
           },
           {
-              "data": "TITULO_ARTICULO"
+              "data": "ARTICULO_ID"
           },
           {
-              "data": "PAGINA_INICIO"
-          },
-          {
-              "data": "PAGINA_FIN"
-          },
-          {
-            "data": "ISSN_ID"
+              "data": "AUTOR_ID"
           },
           {
               "data": null,
-              "defaultContent": "<button class='btn bg-gradient-warning btnEditarArticulo ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
-              <button class='btn bg-gradient-danger btnEliminarArticulo'><span class='fa fa-trash'></span></button>"
+              "defaultContent": "<button class='btn bg-gradient-warning btnEditarEscribe ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
+              <button class='btn bg-gradient-danger btnEliminarEscribe'><span class='fa fa-trash'></span></button>"
           }
       ],
 
@@ -221,71 +196,3 @@ var idioma_espanol = {
       "sSortDescending": ": Activar para ordenar la columna de manera descendente"
   }
 }
-
-function ListarAuditoria() {
-    var table = $("#tablaAuditoria").DataTable({
-        "destroy": true,
-        "responsive": true,
-        "bDeferRender": true,
-        "sPaginationType": "full_numbers",
-        "ajax": {
-            "url": "?c=Articulo&a=ListarAuditoria",
-            "type": "POST"
-        },
-        "columns": [
-            {
-                "data": "ACCION"
-            },
-            {
-                "data": "USUARIO"
-            },
-            {
-                "data": "FECHA_ACTUAL"
-            },
-            {
-                "data": "ID_ARTICULO"
-            },
-            {
-                "data": "TITULO_ARTICULO"
-            },
-            {
-                "data": "PAGINA_INICIO"
-            },
-            {
-                "data": "PAGINA_FIN"
-            },
-            {
-              "data": "ISSN_ID"
-            }
-        ],
-  
-        "language": idioma_espanol
-    });
-  }
-  
-  
-  var idioma_espanol = {
-  
-    "sProcessing": "Procesando...",
-    "sLengthMenu": "Mostrar _MENU_ registros",
-    "sZeroRecords": "No se encontraron resultados",
-    "sEmptyTable": "Ningún dato disponible en esta tabla",
-    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-    "sInfoPostFix": "",
-    "sSearch": "Buscar:",
-    "sUrl": "",
-    "sInfoThousands": ",",
-    "sLoadingRecords": "Cargando...",
-    "oPaginate": {
-        "sFirst": "Primero",
-        "sLast": "Último",
-        "sNext": "Siguiente",
-        "sPrevious": "Anterior"
-    },
-    "oAria": {
-        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-    }
-  }
