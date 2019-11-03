@@ -20,20 +20,30 @@ class ArticuloController {
     }
     public function Guardar() {
 
-        $articulo = new Articulo();
-        $articulo->ID_ARTICULO = $_POST['ID_ARTICULO'];
-        $articulo->TITULO_ARTICULO = $_POST['TITULO_ARTICULO'];
-        $articulo->PAGINA_INICIO = $_POST['PAGINA_INICIO'];
-        $articulo->PAGIN_FIN = $_POST['PAGIN_FIN'];
-        $articulo->ISSN_ID = $_POST['ISSN_ID'];
         $condicion = $_POST['acc'];
 
         if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($articulo);
+
+        $editar = new Articulo();
+        $editar->ID_ARTICULO = $_POST['ID_ARTICULO'];
+        $editar->TITULO_ARTICULO = $_POST['TITULO_ARTICULO'];
+        $editar->PAGINA_INICIO = $_POST['PAGINA_INICIO'];
+        $editar->PAGIN_FIN = $_POST['PAGIN_FIN'];
+        $editar->ISSN_ID = $_POST['ISSN_ID'];
+
+            $result = $this->model->Actualizar($editar);
             echo $result;
             exit();
+
         } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($articulo);
+
+        $registrar = new Articulo();
+        $registrar->TITULO_ARTICULO = $_POST['TITULO_ARTICULO'];
+        $registrar->PAGINA_INICIO = $_POST['PAGINA_INICIO'];
+        $registrar->PAGIN_FIN = $_POST['PAGIN_FIN'];
+        $registrar->ISSN_ID = $_POST['ISSN_ID'];
+        
+            $result = $this->model->Registrar($registrar);
             echo $result;
             exit();
         }

@@ -14,18 +14,21 @@ class EscribeController {
         exit();
     }
     public function Guardar() {
-        $escribe = new Escribe();
-        $escribe->ID_ESCRIBE = $_POST['ID_ESCRIBE'];
-        $escribe->ARTICULO_ID = $_POST['ARTICULO_ID'];
-        $escribe->AUTOR_ID = $_POST['AUTOR_ID'];
         $condicion = $_POST['acc'];
 
         if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($escribe);
+            $editar = new Escribe();
+            $editar->ID_ESCRIBE = $_POST['ID_ESCRIBE'];
+            $editar->ARTICULO_ID = $_POST['ARTICULO_ID'];
+            $editar->AUTOR_ID = $_POST['AUTOR_ID'];
+            $result = $this->model->Actualizar($editar);
             echo $result;
             exit();
         } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($escribe);
+            $guardar = new Escribe();
+            $guardar->ARTICULO_ID = $_POST['ARTICULO_ID'];
+            $guardar->AUTOR_ID = $_POST['AUTOR_ID'];
+            $result = $this->model->Registrar($guardar);
             echo $result;
             exit();
         }

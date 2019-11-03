@@ -9,6 +9,7 @@
             <script src="assets/js/ajax_articulo.js"></script>
             <link rel="stylesheet" href="assets/css/sweetalert2.min.css">
             <script src="assets/js/sweetalert2.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/select/select2.min.css">
     </head>
 
     <body class="horizontal-layout horizontal-menu 2-columns  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
@@ -52,6 +53,8 @@
                         <script src="app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
                         <script src="app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
                         <script src="app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
+                        <script src="app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+                        <script src="app-assets/js/scripts/forms/select/form-select2.js"></script>
 
                         <script type="text/javascript">
                             function maxLengthCheck(object) {

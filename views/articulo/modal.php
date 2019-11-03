@@ -10,12 +10,12 @@
             </div>
             <div class="modal-body">
                 <form id="frm-cliente" data-locked="false">
-                    <div class="row">
+
+                <div class="row">
                         <div class="col col-md-12">
                             <div class="form-group">
-                                <label id="labelID_ARTICULO" class="col col-md-3">ID artículo</label>
                                 <div class="col col-md-9">
-                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="5" class="form-control" id="ID_ARTICULO" placeholder="Ingrese la identificación del artículo" required>
+                                <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="hidden" maxlength="5" class="form-control" id="ID_ARTICULO" placeholder="Ingrese la identificación del artículo" required>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
 
                     oci_execute($stid);
 
-                    echo "<select class='form-control' id=\"ISSN_ID\">";
+                    echo "<select class='select2 form-control' id=\"ISSN_ID\">";
 
                        while ($fila = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
                               echo "<option value=\"".$fila['ISSN']."\"> ".$fila['TITULO_REVISTA']."</option>";

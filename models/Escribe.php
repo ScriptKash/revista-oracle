@@ -44,10 +44,9 @@ class Escribe
     // Función para insertar un registro a la tabla
     public function Registrar(Escribe $data)
     {
-        $sql  = "begin SP_INSERTAR_ESCRIBE(?,?,?);end;";
+        $sql  = "begin SP_INSERTAR_ESCRIBE(?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->ID_ESCRIBE,
             $data->ARTICULO_ID,
             $data->AUTOR_ID
         ));

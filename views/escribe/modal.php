@@ -13,9 +13,8 @@
                     <div class="row">
                         <div class="col col-md-12">
                             <div class="form-group">
-                                <label id="labelESCRIBE_ID" class="col col-md-3">ID Escribe</label>
                                 <div class="col col-md-9">
-                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="6" class="form-control" id="ID_ESCRIBE" placeholder="Ingrese la identificación del artículo" required>
+                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="hidden" maxlength="6" class="form-control" id="ID_ESCRIBE" placeholder="Ingrese la identificación del artículo" required>
                                 </div>
                             </div>
                         </div>
