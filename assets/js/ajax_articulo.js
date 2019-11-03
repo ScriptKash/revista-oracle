@@ -90,7 +90,6 @@ function Guardar() {
               type: 'POST',
               url: "?c=Articulo&a=Guardar",
               data: {
-                  'ID_ARTICULO': $("#ID_ARTICULO").val(),
                   'TITULO_ARTICULO': $("#TITULO_ARTICULO").val(),
                   'PAGINA_INICIO': $("#PAGINA_INICIO").val(),
                   'PAGIN_FIN': $("#PAGIN_FIN").val(),

@@ -54,10 +54,9 @@ class Articulo
     // Función para insertar un registro a la tabla
     public function Registrar(Articulo $data)
     {
-        $sql  = "begin SP_INSERTAR_ARTICULO(?,?,?,?,?);end;";
+        $sql  = "begin SP_INSERTAR_ARTICULO(?,?,?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->ID_ARTICULO,
             $data->TITULO_ARTICULO,
             $data->PAGINA_INICIO,
             $data->PAGIN_FIN,
