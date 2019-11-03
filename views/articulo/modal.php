@@ -10,7 +10,16 @@
             </div>
             <div class="modal-body">
                 <form id="frm-cliente" data-locked="false">
-                <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="hidden" maxlength="5" class="form-control" id="ID_ARTICULO" placeholder="Ingrese la identificación del artículo" required>
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <div class="form-group">
+                                <label id="labelID_ARTICULO" class="col col-md-3">ID artículo</label>
+                                <div class="col col-md-9">
+                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="5" class="form-control" id="ID_ARTICULO" placeholder="Ingrese la identificación del artículo" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col col-md-12">
