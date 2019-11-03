@@ -56,15 +56,6 @@ function Eliminar() {
                           showConfirmButton: false,
                           timer: 1500
                       });
-                  }else{
-                    console.log("Error al guardar");
-                    swal({
-                        type: 'error',
-                        title: 'Error',
-                        text: "¡Esta revista se encuentra en en uso!",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).catch(function(timeout) {});
                   }
                   console.log(result);
                   Listar();

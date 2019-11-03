@@ -74,7 +74,7 @@ function Eliminar() {
   });
 }
 
-function Guardar() {
+function Guardar() {  
   $("#frm-escribe").on("submit", function(e) {
       e.preventDefault();
       //Guardamos la referencia al formulario

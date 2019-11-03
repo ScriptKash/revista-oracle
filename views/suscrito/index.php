@@ -6,7 +6,7 @@
         <?php include("includes/head-tag-contents.php");?>
             <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/datatables.min.css">
             <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
-            <script src="assets/js/ajax_escribe.js"></script>
+            <script src="assets/js/ajax_suscrito.js"></script>
             <link rel="stylesheet" href="assets/css/sweetalert2.min.css">
             <script src="assets/js/sweetalert2.min.js"></script>
             <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/select/select2.min.css">
@@ -15,7 +15,7 @@
     <body class="horizontal-layout horizontal-menu 2-columns  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
 
         <?php include("includes/header.php");?>
-            <?php $page = 'escribe'; include('includes/menu.php'); ?>
+            <?php $page = 'suscrito'; include('includes/menu.php'); ?>
 
                 <!-- BEGIN: Content-->
                 <div class="app-content content">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="content-body">
 
-                            <?php include("views/escribe/escribe.php");?>
+                            <?php include("views/suscrito/suscrito.php");?>
 
                         </div>
                     </div>
@@ -74,7 +74,6 @@
                                 }
                             }
                         </script>
-
     </body>
 
     </html>
