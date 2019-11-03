@@ -40,6 +40,13 @@ class Cliente
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+    public function ListarAuditoria()
+    {
+        $sql  = 'SELECT * from AUDITORIA_CLIENTES';
+        $stmt = $this->oracle->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 
     // Función para insertar un registro a la tabla
     public function Registrar(Cliente $data)

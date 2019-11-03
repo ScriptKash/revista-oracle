@@ -3,6 +3,7 @@ $(document).on("ready", function() {
   Guardar();
   Eliminar();
   Actualizar();
+  ListarAuditoria();
 });
 
 function Actualizar() {
@@ -56,6 +57,7 @@ function Eliminar() {
                   }
                   console.log(result);
                   Listar();
+                  ListarAuditoria();
               }
           });
 
@@ -109,6 +111,7 @@ function Guardar() {
                           timer: 1500
                       });
                       Listar();
+                      ListarAuditoria();
                   } else {
                       console.log("Error al guardar");
 
@@ -176,6 +179,74 @@ function Listar() {
               "data": null,
               "defaultContent": "<button class='btn bg-gradient-warning btnEditarCliente ' data-toggle='modal' data-target='#mGuardar'><span class='fa fa-pencil'></span></button>\
               <button class='btn bg-gradient-danger btnEliminarCliente'><span class='fa fa-trash'></span></button>"
+          }
+      ],
+
+      "language": idioma_espanol
+  });
+}
+
+
+var idioma_espanol = {
+
+  "sProcessing": "Procesando...",
+  "sLengthMenu": "Mostrar _MENU_ registros",
+  "sZeroRecords": "No se encontraron resultados",
+  "sEmptyTable": "Ningún dato disponible en esta tabla",
+  "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+  "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+  "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+  "sInfoPostFix": "",
+  "sSearch": "Buscar:",
+  "sUrl": "",
+  "sInfoThousands": ",",
+  "sLoadingRecords": "Cargando...",
+  "oPaginate": {
+      "sFirst": "Primero",
+      "sLast": "Último",
+      "sNext": "Siguiente",
+      "sPrevious": "Anterior"
+  },
+  "oAria": {
+      "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+  }
+}
+
+function ListarAuditoria() {
+  var table = $("#tablaAuditoria").DataTable({
+      "destroy": true,
+      "responsive": true,
+      "bDeferRender": true,
+      "sPaginationType": "full_numbers",
+      "ajax": {
+          "url": "?c=Cliente&a=ListarAuditoria",
+          "type": "POST"
+      },
+      "columns": [
+        {
+            "data": "ACCION"
+        },
+        {
+            "data": "USUARIO"
+        },
+        {
+            "data": "FECHA_ACTUAL"
+        },  
+        {
+              "data": "ID_CLIENTE"
+          },
+          {
+              "data": "NOMBRE_CLIENTE"
+          },
+          {
+              "data": "APELLIDO1_CLIENTE"
+          },
+          {
+              "data": "APELLIDO2_CLIENTE"
+          },
+          {
+            "data": "CORREO"
           }
       ],
 

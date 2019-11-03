@@ -22,7 +22,7 @@
                                             <table id="tabla" class="table">
                                               <thead>
                                                   <tr>
-                                                      <th>ID autor</th>
+                                                      <th>Cédula</th>
                                                       <th>Nombre del autor</th>
                                                       <th>Primer apellido</th>
                                                       <th>Segundo apellido</th>
@@ -59,7 +59,7 @@
                                                       <th>Acción</th>
                                                       <th>Usuario</th>
                                                       <th>Fecha</th>
-                                                      <th>ID autor</th>
+                                                      <th>Cédula</th>
                                                       <th>Nombre del autor</th>
                                                       <th>Primer apellido</th>
                                                       <th>Segundo apellido</th>

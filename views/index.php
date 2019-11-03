@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                         <h1 class="text-center display-2">Revista Vogue<br></h1>
-                        <h3 class="text-center primary">Los mejores chismes ekisde</h3>
+                        <h3 class="text-center primary">La mejor revista con temas de la actualidad</h3>
 </div>
                     </div>
                 </section>

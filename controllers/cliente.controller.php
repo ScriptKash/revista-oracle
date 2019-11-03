@@ -13,6 +13,11 @@ class ClienteController {
         echo json_encode($resultSet);
         exit();
     }
+    public function ListarAuditoria() {
+        $resultSet["data"] = $this->model->ListarAuditoria();
+        echo json_encode($resultSet);
+        exit();
+    }
     public function Guardar() {
 
         $cliente = new Cliente();

@@ -5,6 +5,7 @@
     <?php include("includes/head-tag-contents.php");?>
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/tables/datatable/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/pickadate/pickadate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datepicker.min.css">
 
     <script src="assets/js/ajax_revista.js"></script>
     <link rel="stylesheet" href="assets/css/sweetalert2.min.css">
@@ -52,11 +53,17 @@
     <script src="app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
     <script src="app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
 
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+
     <script type="text/javascript">
     
-    $('.format-picker').pickadate({
-        format: 'dd-M-y'
-    });
+    // $('.format-picker').pickadate({
+    //     format: 'dd-M-y'
+    // });
+
+    $('.datepicker').datepicker({
+    format: 'dd-M-yy'
+});
     </script>
 
 </body>

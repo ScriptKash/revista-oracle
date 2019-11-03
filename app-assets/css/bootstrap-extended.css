@@ -1049,9 +1049,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   background-color : #FFFFFF;
 }
 
-.input-group .form-control {
+/* .input-group .form-control {
   height : auto;
-}
+} */
 
 .input-group .input-group-prepend .dropdown-toggle::after, .input-group .input-group-append .dropdown-toggle::after {
   left : 0;
