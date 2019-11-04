@@ -13,9 +13,8 @@
                     <div class="row">
                         <div class="col col-md-12">
                             <div class="form-group">
-                                <label id="labelID_SUSCRITO" class="col col-md-3">ID Suscrito</label>
                                 <div class="col col-md-9">
-                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="6" class="form-control" id="ID_SUSCRITO" placeholder="Ingrese la identificación del suscrito" required>
+                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="hidden" maxlength="6" class="form-control" id="ID_SUSCRITO" placeholder="Ingrese la identificación del suscrito" required>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +28,7 @@
                                     <div class="input-group">
                                         <?php
 
-                    $conn = oci_connect("BR", "br","localhost/XE");
+                    $conn = oci_connect("BR", "br","localhost/XE",'AL32UTF8');
                     if (!$conn) {
                       $m = oci_error();
                       echo $m['message'], "\n";
@@ -68,7 +67,7 @@
                                     <div class="input-group">
                                         <?php
 
-                    $conn = oci_connect("BR", "br","localhost/XE");
+                    $conn = oci_connect("BR", "br","localhost/XE",'AL32UTF8');
                     if (!$conn) {
                       $m = oci_error();
                       echo $m['message'], "\n";

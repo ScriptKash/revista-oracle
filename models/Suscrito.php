@@ -44,10 +44,9 @@ class Suscrito
     // Función para insertar un registro a la tabla
     public function Registrar(Suscrito $data)
     {
-        $sql  = "begin SP_INSERTAR_SUSCRITO(?,?,?);end;";
+        $sql  = "begin SP_INSERTAR_SUSCRITO(?,?);end;";
         $stmt = $this->oracle->prepare($sql);
         return $stmt->execute(array(
-            $data->ID_SUSCRITO,
             $data->CLIENTE_ID,
             $data->ISSN_ID
         ));

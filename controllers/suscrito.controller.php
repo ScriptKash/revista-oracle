@@ -14,18 +14,27 @@ class SuscritoController {
         exit();
     }
     public function Guardar() {
-        $suscrito = new Suscrito();
-        $suscrito->ID_suscrito = $_POST['ID_SUSCRITO'];
-        $suscrito->ARTICULO_ID = $_POST['CLIENTE_ID'];
-        $suscrito->AUTOR_ID = $_POST['ISSN_ID'];
+        
         $condicion = $_POST['acc'];
 
         if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($suscrito);
+
+            $editar = new Suscrito();
+            $editar->ID_SUSCRITO = $_POST['ID_SUSCRITO'];
+            $editar->CLIENTE_ID = $_POST['CLIENTE_ID'];
+            $editar->ISSN_ID = $_POST['ISSN_ID'];
+
+            $result = $this->model->Actualizar($editar);
             echo $result;
             exit();
+
         } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($suscrito);
+
+            $guardar = new Suscrito();
+            $guardar->CLIENTE_ID = $_POST['CLIENTE_ID'];
+            $guardar->ISSN_ID = $_POST['ISSN_ID'];
+
+            $result = $this->model->Registrar($guardar);
             echo $result;
             exit();
         }
