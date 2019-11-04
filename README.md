@@ -44,7 +44,7 @@ PHP PDO
 ## Autores
 
 * **Fernando Briceño** - *Trabajo inicial* - [ScriptKash](https://github.com/ScriptKash)
-* **Emmanuel Ramirez** - *Trabajo inicial* - [LaDanta](https://github.com/LaDanta)
+* **Emmanuel Ramírez** - *Trabajo inicial* - [LaDanta](https://github.com/LaDanta)
 
 
 ## Licencia
