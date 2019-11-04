@@ -39,7 +39,7 @@ PHP PDO
 
 * [Jquery](https://jquery.com/) - Librería utilizada para algunas funcionalidades y Ajax
 * [Oracle Database](https://www.oracle.com/database/) - Sistema de base de datos
-* [PHP PDO](https://www.php.net/manual/es/book.pdo.php) y [PHP OCI](php.net/manual/es/book.oci8.php) - Para las respectivas conexiones con Oracle
+* [PHP PDO](https://www.php.net/manual/es/book.pdo.php) y [PHP OCI](https://www.php.net/manual/es/book.oci8.php) - Para las respectivas conexiones con Oracle
 
 
 ## Autores
