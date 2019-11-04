@@ -1,24 +1,34 @@
 <?php
 require_once 'models/Cliente.php';
-class ClienteController {
+class ClienteController
+{
     private $model;
-    public function __CONSTRUCT() {
+    public function __CONSTRUCT()
+    {
         $this->model = new Cliente();
     }
-    public function Index() {
+    public function Index()
+    {
         require_once 'views/cliente/index.php';
     }
-    public function Listar() {
-        $resultSet["data"] = $this->model->Listar();
-        echo json_encode($resultSet, JSON_UNESCAPED_UNICODE);
+    public function Listar()
+    {
+        $resultSet["data"] = $this
+            ->model
+            ->Listar();
+        echo json_encode($resultSet);
         exit();
     }
-    public function ListarAuditoria() {
-        $resultSet["data"] = $this->model->ListarAuditoria();
-        echo json_encode($resultSet, JSON_UNESCAPED_UNICODE);
+    public function ListarAuditoria()
+    {
+        $resultSet["data"] = $this
+            ->model
+            ->ListarAuditoria();
+        echo json_encode($resultSet);
         exit();
     }
-    public function Guardar() {
+    public function Guardar()
+    {
 
         $cliente = new Cliente();
         $cliente->ID_CLIENTE = $_POST['ID_CLIENTE'];
@@ -28,18 +38,28 @@ class ClienteController {
         $cliente->CORREO = $_POST['CORREO'];
         $condicion = $_POST['acc'];
 
-        if ($condicion == 'Editar') {
-            $result = $this->model->Actualizar($cliente);
+        if ($condicion == 'Editar')
+        {
+            $result = $this
+                ->model
+                ->Actualizar($cliente);
             echo $result;
             exit();
-        } elseif ($condicion == 'Nuevo') {
-            $result = $this->model->Registrar($cliente);
+        }
+        elseif ($condicion == 'Nuevo')
+        {
+            $result = $this
+                ->model
+                ->Registrar($cliente);
             echo $result;
             exit();
         }
     }
-    public function Eliminar() {
-        $result = $this->model->Eliminar($_POST['ID_CLIENTE']);
+    public function Eliminar()
+    {
+        $result = $this
+            ->model
+            ->Eliminar($_POST['ID_CLIENTE']);
         echo $result;
         exit();
     }

@@ -1,5 +1,4 @@
 <?php
-
 require_once "Conexion.php";
 
 class Autor
@@ -17,37 +16,46 @@ class Autor
     public $ADSCRIPCION;
     public $POSICION;
 
-    function __construct() {
-        
+    function __construct()
+    {
+
         // Se declara el nombre del Schema de Oracle
-        $dbname = '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = '.DB_SERVER.')(PORT = '.DB_PORT.'))
-                (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = '.DB_NAME.' )))';
+        $dbname = '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = ' . DB_SERVER . ')(PORT = ' . DB_PORT . '))
+                (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = ' . DB_NAME . ' )))';
 
-        $pdo_string = 'oci:dbname='.$dbname;
+        $pdo_string = 'oci:dbname=' . $dbname;
 
-        try {
-                // Conexión con Oracle por medio de PDO
-                $this->oracle = new PDO($pdo_string.';charset=AL32UTF8', DB_USER, DB_PASS);}
+        try
+        {
+            // Conexión con Oracle por medio de PDO
+            $this->oracle = new PDO($pdo_string . ';charset=AL32UTF8', DB_USER, DB_PASS);
+        }
 
-                // En caso de un error aquí se mostrará
-                catch (PDOException $e) {
-                echo "Error al conectarse con Oracle: " . $e->getMessage();
-                exit;
-            } $this->n=array();
+        // En caso de un error aquí se mostrará
+        catch(PDOException $e)
+        {
+            echo "Error al conectarse con Oracle: " . $e->getMessage();
+            exit;
+        }
+        $this->n = array();
     }
-    
+
     // Función para listar todo lo que tenga la tabla
     public function Listar()
     {
-        $sql  = 'SELECT * from AUTOR';
-        $stmt = $this->oracle->prepare($sql);
+        $sql = 'SELECT * from AUTOR';
+        $stmt = $this
+            ->oracle
+            ->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     public function ListarAuditoria()
     {
-        $sql  = 'SELECT * from AUDITORIA_AUTOR';
-        $stmt = $this->oracle->prepare($sql);
+        $sql = 'SELECT * from AUDITORIA_AUTOR';
+        $stmt = $this
+            ->oracle
+            ->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
@@ -55,8 +63,10 @@ class Autor
     // Función para insertar un registro a la tabla
     public function Registrar(Autor $data)
     {
-        $sql  = "begin SP_INSERTAR_AUTOR(?,?,?,?,?,?,?);end;";
-        $stmt = $this->oracle->prepare($sql);
+        $sql = "begin SP_INSERTAR_AUTOR(?,?,?,?,?,?,?);end;";
+        $stmt = $this
+            ->oracle
+            ->prepare($sql);
         return $stmt->execute(array(
             $data->ID_AUTOR,
             $data->NOMBRE_AUTOR,
@@ -67,27 +77,34 @@ class Autor
             $data->POSICION
         ));
     }
-    
+
     // Función para eliminar un registro de la tabla
     public function Eliminar($ID_AUTOR)
     {
-        try {
-            $sql  = "begin SP_ELIMINAR_AUTOR({$ID_AUTOR});end;";
-            $stmt = $this->oracle->prepare($sql);
+        try
+        {
+            $sql = "begin SP_ELIMINAR_AUTOR({$ID_AUTOR});end;";
+            $stmt = $this
+                ->oracle
+                ->prepare($sql);
             $stmt->execute();
-            
+
         }
-        catch (Exception $e) {
+        catch(Exception $e)
+        {
             die($e->getMessage());
         }
     }
-    
+
     // Función para actualizar un registro de la tabla
     public function Actualizar(Autor $data)
     {
-        try {
-            $sql  = "begin SP_EDITAR_AUTOR(?,?,?,?,?,?,?);end;";
-            $stmt = $this->oracle->prepare($sql);
+        try
+        {
+            $sql = "begin SP_EDITAR_AUTOR(?,?,?,?,?,?,?);end;";
+            $stmt = $this
+                ->oracle
+                ->prepare($sql);
             return $stmt->execute(array(
                 $data->ID_AUTOR,
                 $data->NOMBRE_AUTOR,
@@ -98,8 +115,10 @@ class Autor
                 $data->POSICION
             ));
         }
-        catch (Exception $e) {
+        catch(Exception $e)
+        {
             die($e->getMessage());
         }
     }
 }
+
