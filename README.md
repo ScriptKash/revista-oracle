@@ -43,8 +43,10 @@ PHP PDO
 
 ## Autores
 
-* **Fernando Briceño** - *Trabajo inicial* - [ScriptKash](github.com/ScriptKash)
-Y yo que :V
+* **Fernando Briceño** - *Trabajo inicial* - [ScriptKash](https://github.com/ScriptKash)
+* **Emmanuel Ramirez** - *Trabajo inicial* - [LaDanta](https://github.com/LaDanta)
+
+
 ## Licencia
 
 Este proyecto está bajo la licencia MIT.
