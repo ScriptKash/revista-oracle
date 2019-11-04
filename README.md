@@ -28,8 +28,8 @@ existentes.
 Para entender este sistema debes tener en cuenta lo siguiente
 
 ```
-Conocimientos básicos de PHP, HTML y CSS
-Conocimientos básicos de Ajax
+Conocimientos de PHP, HTML y CSS
+Conocimientos de Ajax
 Conocer el patrón de diseño MVC
 ORACLE OCI8
 PHP PDO
@@ -48,4 +48,4 @@ PHP PDO
 
 ## Licencia
 
-Este proyecto está licenciado bajo la licencia MIT.
+Este proyecto está bajo la licencia MIT.
