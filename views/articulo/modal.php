@@ -64,7 +64,7 @@
                                     <div class="input-group">
                                         <?php
 
-                    $conn = oci_connect("BR", "br","localhost/XE");
+                    $conn = oci_connect("BR", "br","localhost/XE",'AL32UTF8');
                     if (!$conn) {
                       $m = oci_error();
                       echo $m['message'], "\n";

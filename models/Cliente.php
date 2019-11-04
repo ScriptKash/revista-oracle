@@ -25,7 +25,7 @@ class Cliente
 
         try {
                 // Conexión con Oracle por medio de PDO
-                $this->oracle = new PDO($pdo_string, DB_USER, DB_PASS);}
+                $this->oracle = new PDO($pdo_string.';charset=AL32UTF8', DB_USER, DB_PASS);}
 
                 // En caso de un error aquí se mostrará
                 catch (PDOException $e) {

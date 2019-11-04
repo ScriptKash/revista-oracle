@@ -10,12 +10,12 @@ class ClienteController {
     }
     public function Listar() {
         $resultSet["data"] = $this->model->Listar();
-        echo json_encode($resultSet);
+        echo json_encode($resultSet, JSON_UNESCAPED_UNICODE);
         exit();
     }
     public function ListarAuditoria() {
         $resultSet["data"] = $this->model->ListarAuditoria();
-        echo json_encode($resultSet);
+        echo json_encode($resultSet, JSON_UNESCAPED_UNICODE);
         exit();
     }
     public function Guardar() {

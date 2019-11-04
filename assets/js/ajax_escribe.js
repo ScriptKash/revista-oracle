@@ -9,7 +9,6 @@ $(document).on("ready", function() {
 function Actualizar() {
   $("#tabla").on("click", ".btnEditarEscribe", function() {
       d = $(this).parents("tr").find("td");
-      $("#labelESCRIBE_ID").hide();
       $("#ID_ESCRIBE").val(d[0].innerText).hide();
       $("#ARTICULO_ID").val(d[1].innerText);
       $("#AUTOR_ID").val(d[2].innerText);
