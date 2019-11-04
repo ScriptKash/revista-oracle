@@ -9,7 +9,7 @@
                 <br>
             </div>
             <div class="modal-body">
-                <form id="frm-revista" data-locked="false">
+                <form id="frm-revista" data-locked="false" accept-charset="UTF-8">
                     <div class="row">
                         <div class="col col-md-12">
                             <div class="form-group">
@@ -35,9 +35,9 @@
                     <div class="row">
                         <div class="col col-md-12">
                             <div class="form-group">
-                                <label class="col col-md-3">Número</label>
+                                <label class="col col-md-6">Número de revista</label>
                                 <div class="col col-md-9">
-                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="20" class="form-control" id="NUMERO" placeholder="Ingrese número" required>
+                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="20" class="form-control" id="NUMERO" placeholder="Ingrese el número" required>
                                 </div>
                             </div>
                         </div>
@@ -61,9 +61,17 @@
                             <div class="form-group">
                                 <label class="col col-md-6">Precio</label>
                                 <div class="col col-md-9">
-                                    <div class="input-group">
-                                        <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="7" placeholder="Ingrese el precio" class="form-control" id="PRECIO" required />
+                                <fieldset>
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1">₡</span>
                                     </div>
+                                    <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="7" class="form-control" id="PRECIO" placeholder="Ingrese el precio" aria-describedby="basic-addon1">
+                                  </div>
+                                </fieldset>
+                                    <!-- <div class="input-group">
+                                        <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" maxlength="7" placeholder="Ingrese el precio" class="form-control" id="PRECIO" required />
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
