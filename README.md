@@ -25,7 +25,7 @@ existentes.
 
 ### Prerrequisitos
 
-Para entender este sistema debes tener en cuenta lo siguiente
+Para entender este sistema debes tener en cuenta lo siguiente:
 
 ```
 Conocimientos de PHP, HTML y CSS
@@ -37,9 +37,8 @@ PHP PDO
 
 ## Construido con
 
-* [Jquery](https://jquery.com/) - Librería utilizada para algunas funcionalidades y Ajax
-* [Oracle Database](https://www.oracle.com/database/) - Sistema de base de datos
-* [PHP PDO](https://www.php.net/manual/es/book.pdo.php) y [PHP OCI](https://www.php.net/manual/es/book.oci8.php) - Para las respectivas conexiones con Oracle
+* [Jquery](https://jquery.com/) - Librería utilizada para algunas funcionalidades y Ajax.
+* [PHP PDO](https://www.php.net/manual/es/book.pdo.php) y [PHP OCI](https://www.php.net/manual/es/book.oci8.php) - Para las respectivas conexiones con Oracle.
 
 
 ## Autores
