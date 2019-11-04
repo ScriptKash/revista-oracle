@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col col-md-6">Título de la revista</label>
                                 <div class="col col-md-9">
-                                    <input type="text" maxlength="25" oninput="maxLengthCheck(this)" class="form-control" id="TITULO_REVISTA" placeholder="Ingrese el título" required>
+                                    <input type="text" maxlength="40" oninput="maxLengthCheck(this)" class="form-control" id="TITULO_REVISTA" placeholder="Ingrese el título" required>
                                 </div>
                             </div>
                         </div>
