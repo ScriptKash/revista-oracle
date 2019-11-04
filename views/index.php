@@ -63,7 +63,7 @@
 
                                 <?php
 
-                    $conn = oci_connect("BR", "br","localhost/XE");
+                    $conn = oci_connect("BR", "br","192.168.137.1/XE");
                     if (!$conn) {
                       $m = oci_error();
                       echo $m['message'], "\n";
